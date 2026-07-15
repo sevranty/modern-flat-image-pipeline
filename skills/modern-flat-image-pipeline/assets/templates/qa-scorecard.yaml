@@ -32,17 +32,22 @@ scores:
     findings: []
 
 total_score: 0
+quality_band: reject
 critical_defects: []
 primary_diagnostic_category: ""
 secondary_diagnostic_categories: []
-decision: fail
-next_action: ""
+next_action: fail
 accepted_limitations: []
 delivery_readiness: false
 
-allowed_decisions:
+allowed_quality_bands:
   - accept
   - local_correction
   - required_iteration
-  - reject_and_regenerate
+  - reject
+
+allowed_next_actions:
+  - accept
+  - targeted_correction
+  - regenerate
   - fail
