@@ -206,8 +206,8 @@ Secondary categories may be recorded, but one primary category controls the next
 | Severity | Meaning | Required action |
 |---|---|---|
 | critical | blocks acceptance regardless of score | correct or regenerate |
-| major | materially harms meaning, identity, composition, or style | required iteration |
-| minor | local imperfection with no critical semantic impact | local correction or documented acceptance |
+| major | materially harms meaning, identity, composition, or style | targeted correction or regeneration |
+| minor | local imperfection with no critical semantic impact | targeted correction or documented acceptance |
 | note | non-blocking observation | record only |
 
 ## 7. Weighted scorecard
@@ -223,12 +223,25 @@ Secondary categories may be recorded, but one primary category controls the next
 | Technical quality and delivery readiness | 5 |
 | **Total** | **100** |
 
-Decision bands:
+Quality bands:
 
-- `90-100`: accept if no critical defect exists;
-- `80-89`: local correction;
-- `65-79`: required iteration;
-- `0-64`: reject and regenerate.
+- `90-100`: `accept` if no critical defect exists;
+- `80-89`: `local_correction`;
+- `65-79`: `required_iteration`;
+- `0-64`: `reject`.
+
+A quality band describes the candidate. It is not the runtime action.
+
+Map the quality band and tool capability to exactly one runtime action:
+
+| Quality band | Runtime action |
+|---|---|
+| `accept` | `accept` |
+| `local_correction` | `targeted_correction` when accepted layers can be preserved; otherwise `regenerate` |
+| `required_iteration` | `targeted_correction` for one bounded primary defect with reliable edit support; otherwise `regenerate` |
+| `reject` | `regenerate` |
+
+Use `fail` only when required source evidence, permission, or tool capability is unavailable and no valid fallback exists.
 
 A high score never overrides a critical defect.
 
@@ -274,7 +287,7 @@ After every correction:
 - inspect the new image again;
 - do not assume previously accepted layers remained intact;
 - compare against all locks and not only the corrected category;
-- issue a new QA decision.
+- issue a new QA report, quality band, and runtime action.
 
 ## 11. Final decision record
 
@@ -282,9 +295,10 @@ Record:
 
 - candidate ID;
 - score by category;
+- total score;
+- quality band;
 - critical defects;
 - primary diagnostic category;
-- decision;
-- next action;
+- runtime next action;
 - accepted limitations;
 - delivery readiness.
