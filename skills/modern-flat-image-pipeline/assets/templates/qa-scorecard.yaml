@@ -1,0 +1,53 @@
+schema_version: 0.1.0
+candidate_id: candidate-001
+
+scores:
+  meaning_and_metaphor:
+    weight: 20
+    score: 0
+    findings: []
+  primary_subject_and_identity:
+    weight: 15
+    score: 0
+    findings: []
+  composition_and_camera:
+    weight: 15
+    score: 0
+    findings: []
+  modern_flat_compliance:
+    weight: 25
+    score: 0
+    findings: []
+  anatomy_and_construction:
+    weight: 10
+    score: 0
+    findings: []
+  light_shadows_and_depth:
+    weight: 10
+    score: 0
+    findings: []
+  technical_quality_and_delivery_readiness:
+    weight: 5
+    score: 0
+    findings: []
+
+total_score: 0
+quality_band: reject
+critical_defects: []
+primary_diagnostic_category: ""
+secondary_diagnostic_categories: []
+next_action: fail
+accepted_limitations: []
+delivery_readiness: false
+
+allowed_quality_bands:
+  - accept
+  - local_correction
+  - required_iteration
+  - reject
+
+allowed_next_actions:
+  - accept
+  - targeted_correction
+  - regenerate
+  - fail

@@ -1,0 +1,70 @@
+schema_version: 0.1.0
+generation_id: generation-001
+versions:
+  skill_version: 0.1.0
+  style_id: modern-flat
+  style_version: 0.1.0
+  prompt_pack_version: 0.1.0
+
+subject:
+  primary: ""
+  identity_defining_features: []
+  supporting_objects: []
+action: ""
+environment: ""
+
+locks:
+  semantic: []
+  identity: []
+  composition:
+    level: 0
+    elements: []
+  style:
+    style_id: modern-flat
+    override_allowed: false
+
+composition:
+  aspect_ratio: ""
+  shot_scale: ""
+  camera_angle: ""
+  subject_position: ""
+  subject_frame_share: ""
+  movement_direction: ""
+  foreground: []
+  midground: []
+  background: []
+  overlaps: []
+  negative_space: ""
+  safe_area: ""
+  allowed_crop_zones: []
+  protected_crop_zones: []
+
+style_system:
+  geometry: []
+  depth: []
+  lighting: []
+  gradients_and_shadows: []
+  palette_roles:
+    neutral_base: ""
+    dominant_group: ""
+    supporting_group: ""
+    focal_accent: ""
+  detail_hierarchy: []
+
+preserve: []
+do_not_change: []
+exclude: []
+
+output_requirements:
+  format: ""
+  size: ""
+  background: ""
+  visible_text: none
+
+adapter_requirements:
+  reference_editing: preferred
+  multiple_references: false
+  mask: false
+  transparent_background: false
+
+known_unknowns: []

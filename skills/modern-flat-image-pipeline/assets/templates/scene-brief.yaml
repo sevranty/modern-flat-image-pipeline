@@ -1,0 +1,24 @@
+schema_version: 0.1.0
+scene_id: scene-001
+purpose: ""
+message: ""
+intended_emotion: ""
+primary_subject: ""
+primary_action: ""
+supporting_objects: []
+environment: ""
+moment_or_state: ""
+visual_center: ""
+movement_direction: ""
+gaze_direction: ""
+depth_roles:
+  foreground: []
+  midground: []
+  background: []
+negative_space:
+  required: false
+  location: ""
+  purpose: ""
+output_use: ""
+success_criteria: []
+unknowns: []

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Modern Flat Image Pipeline"
+  short_description: "Turn references into checked Modern Flat illustrations"
+  default_prompt: "Use $modern-flat-image-pipeline to analyze my reference, lock the required content and composition, generate a new Modern Flat illustration, inspect the result, correct diagnosed errors, and show me the final image."
