@@ -22,9 +22,12 @@ All notable changes to this project will be documented in this file.
 - Accepted and rejected golden anchor specifications.
 - Offline repository, manifest, evaluation, scene, and prompt validators.
 - Positive and negative validation fixtures with deterministic rule IDs.
+- Repository social preview benchmark, concepts, editable source, and PNG exports.
+- README benchmark and content-architecture analysis.
 
 ### Changed
 
 - Skill discovery metadata now describes the complete reference-to-image and visual-QA workflow.
 - Release compatibility now records `eval_version: 0.1.0`.
 - Contribution guidance now requires the one-command local validator before review.
+- The public README now provides outcome-led onboarding, installation, examples, quality gates, evaluation evidence, capability boundaries, and roadmap.
