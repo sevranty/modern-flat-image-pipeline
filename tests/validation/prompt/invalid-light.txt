@@ -1,0 +1,1 @@
+Create a Modern Flat image with planar geometry, volumetric gradients, layered shadows, and explicitly non-photorealistic rendering. Exclude photographic texture. The key light comes from the left and the key light comes from the right.
