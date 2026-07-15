@@ -1,0 +1,37 @@
+{
+  "name": "modern-flat-image-pipeline",
+  "version": "0.1.0",
+  "description": "Transform visual references into inspected Modern Flat illustrations through structured scene contracts, controlled generation, visual QA, and targeted correction.",
+  "author": {
+    "name": "sevranty",
+    "url": "https://github.com/sevranty"
+  },
+  "homepage": "https://github.com/sevranty/modern-flat-image-pipeline#readme",
+  "repository": "https://github.com/sevranty/modern-flat-image-pipeline",
+  "license": "MIT",
+  "keywords": [
+    "agent-skill",
+    "codex-plugin",
+    "image-generation",
+    "reference-to-image",
+    "modern-flat",
+    "visual-qa"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Modern Flat Image Pipeline",
+    "shortDescription": "Turn references into checked Modern Flat illustrations",
+    "longDescription": "Analyze visual references, lock meaning and composition, compile a generator-independent scene contract, create or edit a Modern Flat illustration, inspect the actual result, and correct diagnosed defects before delivery.",
+    "developerName": "sevranty",
+    "category": "Creativity",
+    "capabilities": [
+      "Interactive"
+    ],
+    "websiteURL": "https://github.com/sevranty/modern-flat-image-pipeline",
+    "defaultPrompt": [
+      "Turn this reference into a checked Modern Flat illustration.",
+      "Preserve this composition and rebuild it in Modern Flat.",
+      "Inspect this Modern Flat draft and correct diagnosed defects."
+    ]
+  }
+}
