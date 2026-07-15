@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+generation_id: invalid-safe-area
+subject: {primary: editorial subject cluster}
+action: occupies the lower-right area
+locks:
+  composition: {level: 3, elements: [protected upper-left area]}
+  style: {style_id: modern-flat, override_allowed: false}
+composition:
+  aspect_ratio: "1:1"
+  camera_angle: front view
+  safe_area: ""
+style_system:
+  geometry: [planar geometry]
+  lighting: [directional light from left]
+  palette_roles: {neutral_base: gray, dominant_group: blue, supporting_group: navy, focal_accent: yellow}
+preserve: [lower-right cluster]
+exclude: [pseudo-text]
+output_requirements: {format: png, visible_text: exact heading}

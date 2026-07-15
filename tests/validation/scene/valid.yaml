@@ -1,0 +1,55 @@
+schema_version: 0.1.0
+generation_id: validation-valid
+subject:
+  primary: articulated desk lamp
+action: directs light toward an empty workspace
+environment: simplified studio desk
+locks:
+  semantic: [single lamp, illuminated workspace]
+  identity: [articulated arm, one shade]
+  composition:
+    level: 3
+    elements: [lamp on right, negative space on left]
+  style:
+    style_id: modern-flat
+    override_allowed: false
+composition:
+  aspect_ratio: "16:9"
+  shot_scale: medium
+  camera_angle: side view
+  subject_position: right third
+  subject_frame_share: 35 percent
+  movement_direction: right to left
+  foreground: [table edge]
+  midground: [desk lamp]
+  background: [clean wall]
+  overlaps: []
+  negative_space: left side
+  safe_area: left 35 percent
+  allowed_crop_zones: [outer background]
+  protected_crop_zones: [lamp shade, articulated joints]
+style_system:
+  geometry: [clean structured planar geometry]
+  depth: [foreground midground background separation]
+  lighting: [one directional key light from left]
+  gradients_and_shadows: [volumetric gradients, clean layered shadows]
+  palette_roles:
+    neutral_base: light gray
+    dominant_group: blue
+    supporting_group: dark navy
+    focal_accent: warm yellow
+  detail_hierarchy: [lamp highest detail, background reduced]
+preserve: [lamp silhouette, side view, negative space]
+do_not_change: [object count, camera angle]
+exclude: [photographic noise, glossy CGI, random text]
+output_requirements:
+  format: png
+  size: "1536x864"
+  background: opaque
+  visible_text: none
+adapter_requirements:
+  reference_editing: preferred
+  multiple_references: false
+  mask: false
+  transparent_background: false
+known_unknowns: []

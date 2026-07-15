@@ -1,0 +1,1 @@
+Create a Modern Flat image with planar geometry, volumetric gradients, layered shadows, a directional key light, and explicitly non-photorealistic rendering. Exclude noise. Use AcmeBank branding and corporate color #12AB34.

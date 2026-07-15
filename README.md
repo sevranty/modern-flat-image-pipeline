@@ -4,7 +4,7 @@ A generator-independent Agent Skill that turns visual references into new Modern
 
 ## Status
 
-Package line `0.1.0` is available for review and local installation. The skill does not ship an image model; it routes work to image-generation or image-editing capabilities available in the host environment.
+Package line `0.1.0` is available for local installation. The skill does not ship an image model; it routes work to image-generation or image-editing capabilities available in the host environment.
 
 ## Pipeline
 
@@ -31,8 +31,6 @@ ln -sfn "$HOME/modern-flat-image-pipeline/skills/modern-flat-image-pipeline" "$H
 ```
 
 ## Install as a Codex plugin package
-
-Clone the repository into the personal plugin directory:
 
 ```bash
 mkdir -p "$HOME/plugins"
@@ -65,15 +63,39 @@ Outputs:
 - visual QA report and targeted correction decision;
 - accepted final image delivered visibly to the user.
 
+## Local validation
+
+The validators require Python 3 and PyYAML. They make no network requests.
+
+Run the complete repository, evaluation, valid-fixture, and negative-fixture checks from the repository root:
+
+```bash
+python3 scripts/validate_repository.py .
+```
+
+Run individual contracts when diagnosing a finding:
+
+```bash
+python3 scripts/validate_manifest.py .
+python3 scripts/validate_evaluation.py .
+python3 scripts/validate_scene_spec.py tests/validation/scene/valid.yaml
+python3 scripts/validate_prompt.py tests/validation/prompt/valid.txt
+```
+
+Every finding reports a stable rule ID, path, defect, and required fix. Static checks do not replace visual QA of an actual generated image.
+
 ## Repository structure
 
 ```text
 .codex-plugin/plugin.json
+scripts/
 skills/modern-flat-image-pipeline/
   SKILL.md
   agents/openai.yaml
   references/
   assets/templates/
+  assets/anchors/
+tests/
 docs/
 ```
 
@@ -81,7 +103,7 @@ docs/
 
 - No image model or private generation endpoint is bundled.
 - Exact identity, masks, multiple references, transparency, seeds, and exact sizes depend on the active image tool.
-- Static validation, regression fixtures, public examples, social preview, and the full benchmarked README are tracked separately.
+- Public examples, repository social preview, and the full benchmarked README are tracked separately.
 - Visual QA of the actual returned image remains mandatory.
 
 ## Versioning
@@ -90,7 +112,7 @@ Runtime, style, prompt-pack, evaluation, and plugin-package versions are tracked
 
 ## Contribution workflow
 
-Work in a task branch, preserve the source-of-truth boundaries in `AGENTS.md`, update the decision log for foundational contract changes, and validate runtime, templates, packaging, and documentation together.
+Work in a task branch, preserve the source-of-truth boundaries in `AGENTS.md`, update the decision log for foundational contract changes, and run the local repository validator before review.
 
 ## License
 
