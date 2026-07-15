@@ -1,0 +1,253 @@
+schema_version: 0.1.0
+eval_version: 0.1.0
+cases:
+  - case_id: photo-object-composition
+    title: Preserve a photographed object and composition while changing rendering style
+    fixture_ids: [photo-desk-lamp]
+    user_request: Rebuild the desk-lamp scene as a Modern Flat illustration while preserving the side view and left-side negative space.
+    expected_reference_roles:
+      photo-desk-lamp: [content, identity, composition, camera]
+    expected_locks:
+      semantic: [single desk lamp illuminating an empty workspace]
+      identity: [lamp silhouette, articulated arm, shade direction]
+      composition_level: 3
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: articulated desk lamp
+      primary_action: points light toward an empty workspace
+      negative_space: protected on the left
+    required_prompt_markers: [planar geometry, volumetric gradients, layered shadows, directional light, non-photorealistic]
+    forbidden_prompt_markers: [photorealistic, lens blur, metal microtexture]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: illustration-without-author-style-copy
+    title: Preserve content from an illustration without copying its authorial rendering
+    fixture_ids: [authored-bicycle-poster]
+    user_request: Create a new Modern Flat cyclist scene with the same upward movement and wheel emphasis.
+    expected_reference_roles:
+      authored-bicycle-poster: [content, pose, composition]
+    expected_locks:
+      semantic: [cyclist moving upward]
+      identity: [bicycle, rider pose, two-wheel construction]
+      composition_level: 2
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: cyclist and bicycle
+      primary_action: climbs diagonally upward
+      visual_center: rider and front wheel
+    required_prompt_markers: [clean vector-like surfaces, directional light, atmospheric depth]
+    forbidden_prompt_markers: [named artist, painterly brushwork, canvas texture]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: multi-reference-role-map
+    title: Combine identity, composition, and environment references without silent averaging
+    fixture_ids: [product-camera, city-composition-sketch, text-safe-layout]
+    user_request: Place the compact camera in a structured city scene, use the sketch for major masses, and reserve the upper-left area for later text.
+    expected_reference_roles:
+      product-camera: [identity, construction, camera]
+      city-composition-sketch: [composition, environment]
+      text-safe-layout: [composition, detail]
+    expected_locks:
+      semantic: [camera is the primary subject in an urban context]
+      identity: [large lens, grip, top dial, strap lug]
+      composition_level: 2
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: compact camera
+      primary_action: stands as the focal product object
+      negative_space: upper-left safe area
+    required_prompt_markers: [explicit reference roles, protected crop zone, foreground midground background]
+    forbidden_prompt_markers: [average all references, copy source styles, logo]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: sketch-as-composition-map
+    title: Use a sketch as structural evidence without copying accidental marks
+    fixture_ids: [city-composition-sketch]
+    user_request: Turn the sketch into a polished Modern Flat city scene while preserving the central tower and foreground road.
+    expected_reference_roles:
+      city-composition-sketch: [composition, environment, camera]
+    expected_locks:
+      semantic: [road leads toward central tower]
+      identity: [central tower, two side building masses]
+      composition_level: 3
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: central city tower
+      primary_action: anchors the road perspective
+      visual_center: tower base and road convergence
+    required_prompt_markers: [clean planar architecture, atmospheric depth, coherent perspective]
+    forbidden_prompt_markers: [scribbles, impossible perspective, sketch texture]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: complex-person-environment
+    title: Build a staged person-and-environment scene with anatomy and privacy checks
+    fixture_ids: [person-working]
+    user_request: Create a Modern Flat scene of the person working at the monitor while simplifying the room and removing private screen content.
+    expected_reference_roles:
+      person-working: [content, pose, composition, environment]
+    expected_locks:
+      semantic: [person actively works at a monitor]
+      identity: [one adult, seated pose, leftward reach]
+      composition_level: 3
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: seated adult
+      primary_action: reaches toward a monitor
+      depth_roles: [desk foreground, person midground, shelves background]
+    required_prompt_markers: [staged complex flow, coherent hands, layered interior depth]
+    forbidden_prompt_markers: [private screen text, extra limbs, photographic skin]
+    expected_quality_band: required_iteration
+    expected_runtime_action: targeted_correction
+    expected_qa_findings: [anatomy and private-data checks are mandatory before acceptance]
+
+  - case_id: machine-identity-lock
+    title: Preserve machine construction under an Identity Lock
+    fixture_ids: [excavator-side]
+    user_request: Rebuild the excavator as Modern Flat while preserving its tracked undercarriage, boom articulation, and bucket count.
+    expected_reference_roles:
+      excavator-side: [identity, construction, composition, camera]
+    expected_locks:
+      semantic: [excavator works above a soil pile]
+      identity: [tracked undercarriage, cab left, boom, stick, one bucket]
+      composition_level: 3
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: tracked excavator
+      primary_action: holds its bucket above soil
+      visual_center: boom and bucket articulation
+    required_prompt_markers: [recognizable construction, simplified surfaces, clean shadows]
+    forbidden_prompt_markers: [wheels, second bucket, logo, impossible joints]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: safe-area-for-exact-text
+    title: Reserve space for text without asking the image model to render exact copy
+    fixture_ids: [text-safe-layout]
+    user_request: Create a square Modern Flat visual with an empty upper-left region for a heading that will be added later.
+    expected_reference_roles:
+      text-safe-layout: [composition]
+    expected_locks:
+      semantic: [subject cluster supports later editorial layout]
+      identity: []
+      composition_level: 3
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: abstract subject cluster
+      primary_action: occupies lower-right without invading text area
+      negative_space: upper-left protected
+    required_prompt_markers: [safe area, no visible text, separate editable text step]
+    forbidden_prompt_markers: [render headline, placeholder copy, pseudo-text]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: vertical-adaptation-9x16
+    title: Adapt a reference composition to 9:16 while protecting the primary subject
+    fixture_ids: [vertical-runner]
+    user_request: Create a 9:16 Modern Flat runner scene with upward movement and crop-safe space above.
+    expected_reference_roles:
+      vertical-runner: [content, pose, composition, camera]
+    expected_locks:
+      semantic: [runner moves upward]
+      identity: [one runner, centered body, upward stride]
+      composition_level: 2
+      style_id: modern-flat
+      style_override_allowed: false
+    expected_scene_brief:
+      primary_subject: runner
+      primary_action: advances upward through the frame
+      negative_space: protected above the head
+    required_prompt_markers: [9:16, protected crop zones, vertical reading path]
+    forbidden_prompt_markers: [horizontal crop, motion blur, cut-off head]
+    expected_quality_band: accept
+    expected_runtime_action: accept
+
+  - case_id: reject-photorealistic-drift
+    title: Reject a candidate dominated by photographic rendering
+    fixture_ids: [candidate-photorealistic-drift]
+    user_request: Inspect this candidate against the Modern Flat contract.
+    expected_reference_roles:
+      candidate-photorealistic-drift: [content, detail]
+    expected_locks:
+      semantic: [preserve correct subject and action]
+      identity: []
+      composition_level: 1
+      style_id: modern-flat
+      style_override_allowed: false
+    required_prompt_markers: [explicitly non-photorealistic]
+    forbidden_prompt_markers: [photorealistic, shallow depth of field, skin pores]
+    expected_qa_findings: [dominant photorealism is a critical style defect]
+    expected_primary_diagnostic_category: style_drift
+    expected_critical_rejection_criteria: [dominant photorealism]
+    expected_quality_band: reject
+    expected_runtime_action: regenerate
+
+  - case_id: reject-glossy-cgi-drift
+    title: Reject a candidate dominated by glossy CGI materials
+    fixture_ids: [candidate-glossy-cgi-drift]
+    user_request: Inspect this candidate against the Modern Flat contract.
+    expected_reference_roles:
+      candidate-glossy-cgi-drift: [content, composition]
+    expected_locks:
+      semantic: [preserve correct subject and composition]
+      identity: []
+      composition_level: 2
+      style_id: modern-flat
+      style_override_allowed: false
+    required_prompt_markers: [planar vector-like surfaces, clean tonal modeling]
+    forbidden_prompt_markers: [glossy CGI, chrome, ray-traced reflections]
+    expected_qa_findings: [dominant glossy CGI is a critical style defect]
+    expected_primary_diagnostic_category: style_drift
+    expected_critical_rejection_criteria: [dominant glossy CGI]
+    expected_quality_band: reject
+    expected_runtime_action: regenerate
+
+  - case_id: reject-generic-flat-drift
+    title: Reject generic flat output that lacks dimensional modeling and depth
+    fixture_ids: [candidate-generic-flat-drift]
+    user_request: Inspect this candidate against the Modern Flat contract.
+    expected_reference_roles:
+      candidate-generic-flat-drift: [content]
+    expected_locks:
+      semantic: [preserve readable subject]
+      identity: []
+      composition_level: 1
+      style_id: modern-flat
+      style_override_allowed: false
+    required_prompt_markers: [volumetric gradients, layered shadows, directional light, spatial depth]
+    forbidden_prompt_markers: [uniform flat fills, no shadows, no depth]
+    expected_qa_findings: [generic flat without required depth is a critical style defect]
+    expected_primary_diagnostic_category: style_drift
+    expected_critical_rejection_criteria: [generic flat without required depth]
+    expected_quality_band: reject
+    expected_runtime_action: regenerate
+
+  - case_id: fail-user-visible-delivery
+    title: Fail a run when the accepted candidate is not visible to the user
+    fixture_ids: [candidate-delivery-missing]
+    user_request: Complete the run and deliver the accepted image.
+    expected_reference_roles:
+      candidate-delivery-missing: [detail]
+    expected_locks:
+      semantic: [deliver the accepted candidate]
+      identity: []
+      composition_level: 0
+      style_id: modern-flat
+      style_override_allowed: false
+    required_prompt_markers: [visible user-facing delivery, delivered state]
+    forbidden_prompt_markers: [internal path only, hidden tool output only]
+    expected_qa_findings: [final image is not visible to the user]
+    expected_primary_diagnostic_category: delivery_missing
+    expected_critical_rejection_criteria: [required final image is not visible to the user]
+    expected_quality_band: reject
+    expected_runtime_action: fail

@@ -33,6 +33,9 @@ The skill converts one or more visual references into a new Modern Flat illustra
 | Generator capabilities | `skills/modern-flat-image-pipeline/references/generator-adapters.md` |
 | People, text, identity, and rights | `skills/modern-flat-image-pipeline/references/safety-and-rights.md` |
 | Plugin package manifest | `.codex-plugin/plugin.json` |
+| Evaluation semantics | `docs/evaluation-contract.md` |
+| Evaluation fixtures and expected decisions | `tests/` |
+| Golden anchor specifications | `skills/modern-flat-image-pipeline/assets/anchors/` |
 | Package and contract versions | `docs/style-versioning.md` |
 | Architecture | `docs/architecture.md` |
 | Decisions | `docs/decision-log.md` |
@@ -47,6 +50,16 @@ Do not duplicate detailed rules across files. Link to the canonical file instead
 - Do not claim a bundled image model, exact-size support, or private backend integration.
 - Do not add marketplace entries unless the target personal or team marketplace is explicit.
 - Update `CHANGELOG.md` when installation, metadata, compatibility, or public behavior changes.
+
+## Evaluation rules
+
+- Keep fixture IDs, case IDs, and anchor IDs stable and ASCII-only.
+- Test complete decisions, not exact prompt wording.
+- Keep quality bands separate from runtime actions.
+- Require one primary diagnostic category for every rejected case.
+- Do not commit externally sourced visual references without clear redistribution rights.
+- Treat golden anchor specifications as normative and visual candidates as evidence attached to them.
+- Do not treat static evaluation as a substitute for inspecting an actual generated image.
 
 ## Change protocol
 

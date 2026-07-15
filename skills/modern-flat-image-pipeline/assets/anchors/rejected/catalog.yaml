@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+eval_version: 0.1.0
+anchor_status: specification_ready
+anchors:
+  - anchor_id: rejected-photorealistic-person
+    case_id: reject-photorealistic-drift
+    scene: Correct person and action rendered with skin pores, lens blur, and photographic material detail.
+    rejection_reasons: [dominant photorealism, shallow depth of field, photographic microtexture]
+    primary_diagnostic_category: style_drift
+    runtime_action: regenerate
+
+  - anchor_id: rejected-glossy-camera
+    case_id: reject-glossy-cgi-drift
+    scene: Correct camera form rendered as glossy plastic with chrome reflections and studio lighting.
+    rejection_reasons: [dominant glossy CGI, mirror-like reflections, physically simulated material language]
+    primary_diagnostic_category: style_drift
+    runtime_action: regenerate
+
+  - anchor_id: rejected-generic-flat-city
+    case_id: reject-generic-flat-drift
+    scene: City scene uses uniform flat fills without gradients, shadows, light direction, or depth separation.
+    rejection_reasons: [generic flat without required depth, no tonal modeling, no spatial layers]
+    primary_diagnostic_category: style_drift
+    runtime_action: regenerate
+
+  - anchor_id: rejected-broken-excavator
+    case_id: machine-identity-lock
+    scene: Excavator has wheels instead of tracks, two buckets, and impossible boom joints.
+    rejection_reasons: [identity lock broken, impossible construction, duplicated working tool]
+    primary_diagnostic_category: identity_error
+    runtime_action: regenerate
+
+  - anchor_id: rejected-person-anatomy
+    case_id: complex-person-environment
+    scene: Person has merged hands, an extra arm, and unreadable private pseudo-text on the monitor.
+    rejection_reasons: [critical anatomy defect, private-data risk, accidental pseudo-text]
+    primary_diagnostic_category: anatomy_error
+    runtime_action: targeted_correction
+
+  - anchor_id: rejected-delivery-missing
+    case_id: fail-user-visible-delivery
+    scene: Candidate passes image QA but remains only in internal tool output and is not visible to the user.
+    rejection_reasons: [delivery gate failed, final image not visible]
+    primary_diagnostic_category: delivery_missing
+    runtime_action: fail

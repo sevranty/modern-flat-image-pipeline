@@ -1,0 +1,55 @@
+schema_version: 0.1.0
+eval_version: 0.1.0
+expected_decisions:
+  photo-object-composition:
+    quality_band: accept
+    runtime_action: accept
+    critical_defects: []
+  illustration-without-author-style-copy:
+    quality_band: accept
+    runtime_action: accept
+    critical_defects: []
+  multi-reference-role-map:
+    quality_band: accept
+    runtime_action: accept
+    critical_defects: []
+  sketch-as-composition-map:
+    quality_band: accept
+    runtime_action: accept
+    critical_defects: []
+  complex-person-environment:
+    quality_band: required_iteration
+    runtime_action: targeted_correction
+    mandatory_checks: [anatomy, hands, private_data]
+  machine-identity-lock:
+    quality_band: accept
+    runtime_action: accept
+    critical_defects: []
+  safe-area-for-exact-text:
+    quality_band: accept
+    runtime_action: accept
+    required_delivery_step: separate_editable_text_layer
+  vertical-adaptation-9x16:
+    quality_band: accept
+    runtime_action: accept
+    critical_defects: []
+  reject-photorealistic-drift:
+    quality_band: reject
+    runtime_action: regenerate
+    primary_diagnostic_category: style_drift
+    critical_defects: [dominant_photorealism]
+  reject-glossy-cgi-drift:
+    quality_band: reject
+    runtime_action: regenerate
+    primary_diagnostic_category: style_drift
+    critical_defects: [dominant_glossy_cgi]
+  reject-generic-flat-drift:
+    quality_band: reject
+    runtime_action: regenerate
+    primary_diagnostic_category: style_drift
+    critical_defects: [generic_flat_without_depth]
+  fail-user-visible-delivery:
+    quality_band: reject
+    runtime_action: fail
+    primary_diagnostic_category: delivery_missing
+    critical_defects: [final_image_not_visible]

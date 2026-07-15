@@ -16,7 +16,12 @@ All notable changes to this project will be documented in this file.
 - Codex plugin manifest for package version `0.1.0`.
 - Standalone skill and plugin installation documentation.
 - MIT license and release compatibility contract.
+- Evaluation contract version `0.1.0`.
+- Twelve end-to-end positive and negative regression cases.
+- Synthetic reference fixtures and expected decision map.
+- Accepted and rejected golden anchor specifications.
 
 ### Changed
 
 - Skill discovery metadata now describes the complete reference-to-image and visual-QA workflow.
+- Release compatibility now records `eval_version: 0.1.0`.

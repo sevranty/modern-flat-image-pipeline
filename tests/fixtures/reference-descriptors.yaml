@@ -1,0 +1,152 @@
+schema_version: 0.1.0
+eval_version: 0.1.0
+fixtures:
+  - fixture_id: photo-desk-lamp
+    source_type: photo
+    synthetic: true
+    description: A metal desk lamp occupies the right third of a horizontal frame and points toward an empty left-side workspace.
+    observed_evidence:
+      - one desk lamp
+      - side view
+      - empty negative space on the left
+      - simple tabletop horizon
+    prohibited_transfer:
+      - photographic noise
+      - realistic metal microtexture
+      - lens blur
+
+  - fixture_id: authored-bicycle-poster
+    source_type: illustration
+    synthetic: true
+    description: A cyclist moves diagonally upward through a poster composition with expressive painted edges.
+    observed_evidence:
+      - one cyclist
+      - upward diagonal movement
+      - large circular wheel silhouette
+      - compact background shapes
+    prohibited_transfer:
+      - painterly brush signature
+      - canvas texture
+      - author-specific line treatment
+
+  - fixture_id: product-camera
+    source_type: photo
+    synthetic: true
+    description: A compact camera shown in three-quarter view with a large lens, grip, top dial, and strap lug.
+    observed_evidence:
+      - compact camera body
+      - three-quarter view
+      - one large circular lens
+      - visible grip and top control dial
+    prohibited_transfer:
+      - logo
+      - serial number
+      - photographic reflections
+
+  - fixture_id: city-composition-sketch
+    source_type: sketch
+    synthetic: true
+    description: A rough sketch places one tall tower in the center, low buildings on both sides, and a road entering from the foreground.
+    observed_evidence:
+      - central tower
+      - low side masses
+      - foreground road
+      - symmetrical balance
+    prohibited_transfer:
+      - accidental scribbles
+      - impossible perspective marks
+
+  - fixture_id: person-working
+    source_type: photo
+    synthetic: true
+    description: An adult sits at a desk, turns slightly left, and reaches toward a large monitor while shelves recede behind.
+    observed_evidence:
+      - one adult
+      - seated pose
+      - leftward reach
+      - desk and monitor
+      - layered interior depth
+    prohibited_transfer:
+      - personal data on screen
+      - photographic skin texture
+      - background clutter
+
+  - fixture_id: excavator-side
+    source_type: photo
+    synthetic: true
+    description: A tracked excavator in side view with a raised boom, articulated stick, and bucket above a soil pile.
+    observed_evidence:
+      - tracked undercarriage
+      - cab on left
+      - raised boom and stick
+      - one bucket
+      - soil pile
+    prohibited_transfer:
+      - manufacturer logo
+      - registration number
+      - photographic dust texture
+
+  - fixture_id: text-safe-layout
+    source_type: diagram
+    synthetic: true
+    description: A square composition reserves the upper-left quadrant for a heading and places a subject cluster in the lower-right.
+    observed_evidence:
+      - square frame
+      - protected upper-left area
+      - lower-right subject cluster
+    prohibited_transfer:
+      - placeholder text
+      - guide lines
+
+  - fixture_id: vertical-runner
+    source_type: photo
+    synthetic: true
+    description: A runner moves upward through a vertical frame with the body centered and open space above.
+    observed_evidence:
+      - one runner
+      - vertical movement
+      - centered body
+      - open upper region
+    prohibited_transfer:
+      - motion blur
+      - photographic background detail
+
+  - fixture_id: candidate-photorealistic-drift
+    source_type: generated_candidate
+    synthetic: true
+    description: The candidate uses realistic skin pores, photographic depth of field, material microtexture, and lens-like highlights.
+    observed_evidence:
+      - correct subject and action
+      - dominant photographic rendering
+      - shallow depth of field
+    prohibited_transfer: []
+
+  - fixture_id: candidate-glossy-cgi-drift
+    source_type: generated_candidate
+    synthetic: true
+    description: The candidate uses glossy plastic surfaces, chrome reflections, ray-traced highlights, and a studio-render appearance.
+    observed_evidence:
+      - correct subject and composition
+      - dominant glossy CGI rendering
+      - mirror-like reflections
+    prohibited_transfer: []
+
+  - fixture_id: candidate-generic-flat-drift
+    source_type: generated_candidate
+    synthetic: true
+    description: The candidate uses uniform flat fills, no directional light, no layered shadows, and no spatial depth.
+    observed_evidence:
+      - readable subject silhouette
+      - no dimensional gradients
+      - no foreground or background separation
+    prohibited_transfer: []
+
+  - fixture_id: candidate-delivery-missing
+    source_type: delivery_record
+    synthetic: true
+    description: A candidate passed visual QA but the final response contains no visible image and only references internal tool output.
+    observed_evidence:
+      - qa_decision accept
+      - visible_to_user false
+      - delivery_state final_ready
+    prohibited_transfer: []
