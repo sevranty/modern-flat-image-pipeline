@@ -1,0 +1,45 @@
+schema_version: 0.1.0
+eval_version: 0.1.0
+anchor_status: specification_ready
+anchors:
+  - anchor_id: accepted-desk-lamp-negative-space
+    case_id: photo-object-composition
+    scene: Articulated desk lamp on the right, illuminated workspace and clean negative space on the left.
+    format: 16:9
+    palette_roles: [cool neutral base, blue dominant group, warm focal accent]
+    acceptance_reasons: [readable silhouette, coherent directional light, layered shadows, protected negative space]
+
+  - anchor_id: accepted-cyclist-upward-motion
+    case_id: illustration-without-author-style-copy
+    scene: Cyclist moves diagonally upward through simplified terrain layers.
+    format: 4:5
+    palette_roles: [light neutral base, green dominant group, coral focal accent]
+    acceptance_reasons: [clear action, clean geometry, authorial style not copied, atmospheric depth]
+
+  - anchor_id: accepted-camera-city-layout
+    case_id: multi-reference-role-map
+    scene: Compact camera in a central urban composition with an open upper-left editorial area.
+    format: 1:1
+    palette_roles: [neutral base, violet dominant group, cyan supporting group, yellow focal accent]
+    acceptance_reasons: [identity lock preserved, reference roles remain distinct, safe area protected]
+
+  - anchor_id: accepted-city-tower-road
+    case_id: sketch-as-composition-map
+    scene: Foreground road leads toward a central tower with lower side buildings.
+    format: 16:9
+    palette_roles: [sky neutral base, blue dominant group, teal support, orange focal accent]
+    acceptance_reasons: [composition reconstructed, sketch noise removed, perspective coherent]
+
+  - anchor_id: accepted-excavator-construction
+    case_id: machine-identity-lock
+    scene: Side-view tracked excavator holds one bucket above a soil pile.
+    format: 16:9
+    palette_roles: [light neutral base, yellow dominant group, dark support, red focal accent]
+    acceptance_reasons: [construction preserved, one bucket, readable articulation, non-photorealistic surfaces]
+
+  - anchor_id: accepted-runner-vertical
+    case_id: vertical-adaptation-9x16
+    scene: One runner moves upward through a vertical layered environment with crop-safe space above.
+    format: 9:16
+    palette_roles: [dark neutral base, blue dominant group, purple support, lime focal accent]
+    acceptance_reasons: [vertical reading path, protected head area, coherent light, depth layers]
