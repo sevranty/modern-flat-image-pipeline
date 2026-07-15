@@ -32,10 +32,21 @@ The skill converts one or more visual references into a new Modern Flat illustra
 | Final user delivery | `skills/modern-flat-image-pipeline/references/output-delivery.md` |
 | Generator capabilities | `skills/modern-flat-image-pipeline/references/generator-adapters.md` |
 | People, text, identity, and rights | `skills/modern-flat-image-pipeline/references/safety-and-rights.md` |
+| Plugin package manifest | `.codex-plugin/plugin.json` |
+| Package and contract versions | `docs/style-versioning.md` |
 | Architecture | `docs/architecture.md` |
 | Decisions | `docs/decision-log.md` |
 
 Do not duplicate detailed rules across files. Link to the canonical file instead.
+
+## Packaging rules
+
+- Keep plugin, skill-folder, and frontmatter names equal to `modern-flat-image-pipeline`.
+- Keep manifest paths relative and rooted with `./` where the manifest contract requires it.
+- Keep plugin interface prompts short and aligned with real runtime capabilities.
+- Do not claim a bundled image model, exact-size support, or private backend integration.
+- Do not add marketplace entries unless the target personal or team marketplace is explicit.
+- Update `CHANGELOG.md` when installation, metadata, compatibility, or public behavior changes.
 
 ## Change protocol
 
@@ -43,4 +54,4 @@ Do not duplicate detailed rules across files. Link to the canonical file instead
 - Keep architecture and canonical runtime changes in a Draft pull request until explicit lifecycle approval.
 - Update the decision log when changing a foundational contract.
 - Update the changelog when changing externally observable behavior.
-- Preserve compatibility between the runtime workflow, templates, references, and metadata.
+- Preserve compatibility between the runtime workflow, templates, references, packaging, tests, and metadata.
