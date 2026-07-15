@@ -36,6 +36,7 @@ The skill converts one or more visual references into a new Modern Flat illustra
 | Evaluation semantics | `docs/evaluation-contract.md` |
 | Evaluation fixtures and expected decisions | `tests/` |
 | Golden anchor specifications | `skills/modern-flat-image-pipeline/assets/anchors/` |
+| Validation orchestration | `scripts/validate_repository.py` |
 | Package and contract versions | `docs/style-versioning.md` |
 | Architecture | `docs/architecture.md` |
 | Decisions | `docs/decision-log.md` |
@@ -61,10 +62,24 @@ Do not duplicate detailed rules across files. Link to the canonical file instead
 - Treat golden anchor specifications as normative and visual candidates as evidence attached to them.
 - Do not treat static evaluation as a substitute for inspecting an actual generated image.
 
+## Validation rules
+
+Run before review:
+
+```bash
+python3 scripts/validate_repository.py .
+```
+
+- Validators must remain deterministic and offline.
+- Every error must include a stable rule ID, path, message, and fix.
+- Positive fixtures must pass; negative fixtures must fail with their expected rule ID.
+- Do not weaken a validator only to make a fixture pass; fix the contract or fixture.
+- Static validation never declares an image visually correct.
+
 ## Change protocol
 
 - Work in a task branch.
 - Keep architecture and canonical runtime changes in a Draft pull request until explicit lifecycle approval.
 - Update the decision log when changing a foundational contract.
 - Update the changelog when changing externally observable behavior.
-- Preserve compatibility between the runtime workflow, templates, references, packaging, tests, and metadata.
+- Preserve compatibility between the runtime workflow, templates, references, packaging, tests, validators, and metadata.
