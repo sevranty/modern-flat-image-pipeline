@@ -1,0 +1,18 @@
+schema_version: 0.1.0
+generation_id: invalid-style
+subject: {primary: articulated desk lamp}
+action: directs light toward an empty workspace
+locks:
+  composition: {level: 3, elements: [lamp on right]}
+  style: {style_id: photorealistic, override_allowed: false}
+composition:
+  aspect_ratio: "16:9"
+  camera_angle: side view
+  safe_area: left side
+style_system:
+  geometry: [planar geometry]
+  lighting: [directional light from left]
+  palette_roles: {neutral_base: gray, dominant_group: blue, supporting_group: navy, focal_accent: yellow}
+preserve: [lamp silhouette]
+exclude: [random text]
+output_requirements: {format: png, visible_text: none}
