@@ -64,7 +64,7 @@ style_lock:
   override_allowed: false
 ```
 
-User references cannot override this lock.
+User references and aesthetic preferences cannot override this lock. A request for another governing output style is outside this skill's scope and must not be resolved by weakening the Style Lock.
 
 ## 3. Scene Brief
 
@@ -145,17 +145,17 @@ The final natural-language prompt is compiled from this artifact.
 When two requirements conflict, apply this order:
 
 1. safety and rights constraints;
-2. explicit current user instruction;
-3. Semantic Lock;
-4. Identity Lock;
-5. protected crop and delivery requirements;
-6. Composition Lock;
-7. Style Lock invariants;
+2. mandatory Style Lock and skill scope;
+3. explicit current user instruction compatible with this skill;
+4. Semantic Lock;
+5. Identity Lock;
+6. protected crop and delivery requirements;
+7. Composition Lock;
 8. Scene Brief;
 9. assigned reference roles;
-10. aesthetic preferences.
+10. aesthetic preferences compatible with the Style Lock.
 
-If a higher-priority requirement makes a lower-priority requirement impossible, record the deviation instead of hiding it.
+If a higher-priority requirement makes a lower-priority requirement impossible, record the deviation instead of hiding it. If the requested governing style conflicts with Modern Flat, stop using this skill rather than overriding the Style Lock.
 
 ## 7. Simple flow
 
