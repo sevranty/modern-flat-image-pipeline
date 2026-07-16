@@ -7,6 +7,12 @@ on:
     paths:
       - scripts/generate_social_preview.py
       - .github/workflows/generate-social-preview.yml
+  pull_request:
+    branches:
+      - main
+    paths:
+      - scripts/generate_social_preview.py
+      - .github/workflows/generate-social-preview.yml
 
 permissions:
   contents: write
@@ -72,7 +78,8 @@ jobs:
               print(f'{path}: PASS {width}x{height} RGB bytes={len(data)}')
           PY
 
-      - name: Commit generated assets
+      - name: Commit generated assets on push runs
+        if: github.event_name == 'push'
         run: |
           if git diff --quiet -- assets/repository-social-preview.png assets/repository-social-preview-thumbnail.png; then
             echo 'Generated assets already match the branch.'
@@ -83,3 +90,7 @@ jobs:
           git add assets/repository-social-preview.png assets/repository-social-preview-thumbnail.png
           git commit -m 'fix(social-preview): regenerate valid RGB exports'
           git push origin HEAD:fix/mfp-012-social-preview-replacement
+
+      - name: Require committed exports on pull requests
+        if: github.event_name == 'pull_request'
+        run: git diff --exit-code -- assets/repository-social-preview.png assets/repository-social-preview-thumbnail.png
