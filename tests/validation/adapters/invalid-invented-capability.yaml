@@ -3,8 +3,13 @@ profiles:
   - adapter_id: invented-capability
     tool_name: example
     model_or_mode: example
+    verification:
+      status: verified
+      verified_at: "2026-07-16"
+      evidence_type: repository_contract
+      source: docs/example.md
     capabilities:
-      text_to_image: false
+      text_to_image: true
       reference_conditioned_generation: false
       reference_image_editing: false
       multiple_references: false
@@ -13,7 +18,12 @@ profiles:
       exact_pixel_size: false
       transparent_background: false
       deterministic_seed: false
-      output_formats: []
       returns_inspectable_image: false
-      private_magic_flag: true
-    fallback_impact: [Do not claim generated-image delivery.]
+    limitations: []
+    fallbacks:
+      semantic_lock: preserve
+      identity_lock: preserve
+      composition_lock: preserve
+      delivery: not_generated
+    false_delivery_claim_allowed: false
+unavailable_profiles: []

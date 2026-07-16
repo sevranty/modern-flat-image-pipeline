@@ -1,22 +1,33 @@
 # WebFactoryOS orchestration boundary
 
-Modern Flat Image Pipeline is autonomous from WebFactoryOS and Caveman runtime systems.
+```text
+PROJECT_ID: MODERN_FLAT_IMAGE_PIPELINE
+SHORT_ID: MFP
+grants_write_access: false
+```
 
-## Ownership boundary
+## Ownership
 
-- Modern Flat Image Pipeline owns repository code, skill content, assets, validators, tests, issues, pull requests, tags, releases, and release evidence.
-- WebFactoryOS owns external registry, routing, relations, naming, and orchestration status only.
-- `grants_write_access=false`: registry or orchestration references do not grant external systems write authority over this repository.
+MFP is the execution and source-of-truth repository for the skill runtime, Modern Flat contracts, prompt and QA rules, assets, tests, validators, local Issues and pull requests, tags, and releases.
+
+WebFactoryOS owns only external registry, routing, relations, naming, and orchestration status. It cannot override MFP files, move MFP release state, or write to this repository.
 
 ## Dependency boundary
 
-The skill has no WebFactoryOS or Caveman build, runtime, validation, generation, or release dependency. External orchestration may point to this repository, but local validation and release readiness are determined by this repository's canonical files and validators.
+MFP has no build, runtime, validation, packaging, or release dependency on WebFactoryOS. The repository must remain installable, testable, and releasable when WebFactoryOS is unavailable.
 
-## Release evidence boundary
+Caveman is a communication reference only. It is not installed, imported, vendored, or required at runtime.
 
-Social preview upload and public repository-card verification are owner-side GitHub Settings and public-web observations. Repository files may record committed preview assets, but they must not assert owner-side upload or public-card PASS without observable evidence.
+## Handoff
 
-## Public status links
+External orchestration may link to an MFP Issue or pull request. Execution still follows the local `TASK_CONTEXT`, `AGENTS.md`, repository validators, branch policy, and protected resources.
 
-- Repository: https://github.com/sevranty/modern-flat-image-pipeline
-- Task status: repository-local validation ready; owner-side Social preview verification, merge, tag, and GitHub Release publication require public GitHub evidence before they can be reported as complete.
+A handoff is valid only when it identifies the exact MFP task, repository, branch or base SHA, WRITE_SCOPE, protected resources, and DONE_WHEN. External metadata never grants write access.
+
+## Verification
+
+```bash
+python3 scripts/validate_repository.py .
+```
+
+Review must confirm no WebFactoryOS import, workflow call, copied registry, credential, absolute local path, or cross-repository write was added.

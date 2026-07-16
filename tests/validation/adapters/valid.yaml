@@ -1,6 +1,7 @@
 schema_version: 0.1.0
+profile_status: evidence_gated
 profiles:
-  - adapter_id: missing-fallback
+  - adapter_id: no-image-tool-fallback
     tool_name: none
     model_or_mode: no-image-tool
     verification:
@@ -19,10 +20,14 @@ profiles:
       transparent_background: false
       deterministic_seed: false
       returns_inspectable_image: false
-    limitations: []
+    limitations: [No image is generated.]
     fallbacks:
-      semantic_lock: preserve
-      identity_lock: preserve
-      delivery: not_generated
+      semantic_lock: Preserve the semantic contract in the generated package.
+      identity_lock: Preserve identity constraints and report that no image was produced.
+      composition_lock: Preserve composition and crop constraints in the generated package.
+      delivery: Set delivery state to not_generated.
     false_delivery_claim_allowed: false
-unavailable_profiles: []
+unavailable_profiles:
+  - adapter_id: native-host-image-tool
+    reason: No stable repository-level capability contract is bound.
+    unblock_condition: Add dated public or successful-operation evidence.
