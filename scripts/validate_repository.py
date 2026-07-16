@@ -18,6 +18,15 @@ INVALID_PROMPTS = {
     Path("tests/validation/prompt/invalid-light.txt"): "PROMPT-LIGHT-001",
     Path("tests/validation/prompt/invalid-artist.txt"): "PROMPT-ARTIST-001",
 }
+CANONICAL_ADAPTERS = Path("skills/modern-flat-image-pipeline/assets/adapters/capability-profiles.yaml")
+VALID_ADAPTER = Path("tests/validation/adapters/valid.yaml")
+INVALID_ADAPTERS = {
+    Path("tests/validation/adapters/invalid-invented-capability.yaml"): "ADAPTER-EVIDENCE-001",
+    Path("tests/validation/adapters/invalid-missing-evidence.yaml"): "ADAPTER-EVIDENCE-002",
+    Path("tests/validation/adapters/invalid-stale-evidence.yaml"): "ADAPTER-EVIDENCE-003",
+    Path("tests/validation/adapters/invalid-missing-fallback.yaml"): "ADAPTER-FALLBACK-002",
+    Path("tests/validation/adapters/invalid-false-delivery.yaml"): "ADAPTER-DELIVERY-001",
+}
 
 
 def run_command(root: Path, args: list[str], expect_success: bool, expected_rule: str | None = None) -> tuple[bool, str]:
@@ -49,6 +58,9 @@ def run() -> int:
 
     checks.append(("manifest", *run_command(root, ["scripts/validate_manifest.py", "."], True)))
     checks.append(("evaluation", *run_command(root, ["scripts/validate_evaluation.py", "."], True)))
+    checks.append(("anchor-evidence", *run_command(root, ["scripts/validate_anchor_evidence.py", "."], True)))
+    checks.append(("adapter-canonical", *run_command(root, ["scripts/validate_adapter_profiles.py", str(CANONICAL_ADAPTERS)], True)))
+    checks.append(("adapter-valid", *run_command(root, ["scripts/validate_adapter_profiles.py", str(VALID_ADAPTER)], True)))
     checks.append(("scene-valid", *run_command(root, ["scripts/validate_scene_spec.py", str(VALID_SCENE)], True)))
     checks.append(("prompt-valid", *run_command(root, ["scripts/validate_prompt.py", str(VALID_PROMPT)], True)))
 
@@ -56,6 +68,8 @@ def run() -> int:
         checks.append((f"scene-negative:{path.name}", *run_command(root, ["scripts/validate_scene_spec.py", str(path)], False, rule)))
     for path, rule in INVALID_PROMPTS.items():
         checks.append((f"prompt-negative:{path.name}", *run_command(root, ["scripts/validate_prompt.py", str(path)], False, rule)))
+    for path, rule in INVALID_ADAPTERS.items():
+        checks.append((f"adapter-negative:{path.name}", *run_command(root, ["scripts/validate_adapter_profiles.py", str(path)], False, rule)))
 
     failures = 0
     for name, ok, output in checks:

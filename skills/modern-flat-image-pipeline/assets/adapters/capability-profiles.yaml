@@ -1,0 +1,41 @@
+schema_version: 0.1.0
+profile_status: evidence_gated
+profiles:
+  - adapter_id: no-image-tool-fallback
+    tool_name: none
+    model_or_mode: no-image-tool
+    verification:
+      status: verified
+      verified_at: 2026-07-16
+      evidence_type: repository_contract
+      source: skills/modern-flat-image-pipeline/references/generator-adapters.md
+    capabilities:
+      text_to_image: false
+      reference_conditioned_generation: false
+      reference_image_editing: false
+      multiple_references: false
+      mask_or_inpainting: false
+      exact_aspect_ratio: false
+      exact_pixel_size: false
+      transparent_background: false
+      deterministic_seed: false
+      returns_inspectable_image: false
+    limitations:
+      - No image is generated or edited.
+      - Only analysis, locks, scene contracts, prompt package, and capability gap report are delivered.
+    fallbacks:
+      semantic_lock: Preserve the complete semantic contract in the generated package.
+      identity_lock: Preserve observable identity constraints in the generated package and report that no image was produced.
+      composition_lock: Preserve the composition specification and protected crop zones in the generated package.
+      delivery: Set delivery state to not_generated and never claim image completion.
+    false_delivery_claim_allowed: false
+unavailable_profiles:
+  - adapter_id: native-host-image-tool
+    reason: Host image tools vary by environment and no stable repository-level capability contract has been bound to this profile.
+    unblock_condition: Add a dated public contract URL or recorded successful-operation evidence, then validate every true capability and fallback.
+  - adapter_id: generic-text-to-image
+    reason: No specific generator contract has been verified for this repository release.
+    unblock_condition: Add a dated public contract URL or recorded successful-operation evidence and prove supported size, reference, output, and delivery behavior.
+  - adapter_id: generic-reference-edit
+    reason: No specific edit tool contract has been verified for this repository release.
+    unblock_condition: Add a dated public contract URL or recorded successful-operation evidence and prove reference input, edit preservation, mask behavior, output inspection, and fallback behavior.

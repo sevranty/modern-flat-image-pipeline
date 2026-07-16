@@ -73,7 +73,17 @@ Rejected cases must additionally include:
 
 ## Golden anchors
 
-The golden set is split into `accepted` and `rejected` catalogs. Anchor specifications are normative. Visual evidence can be attached later only with provenance and completed QA.
+The golden set is split into `accepted` and `rejected` catalogs. Anchor specifications are normative.
+
+`skills/modern-flat-image-pipeline/assets/anchors/evidence.yaml` tracks one evidence state for every anchor. Published evidence must carry a repository-relative asset, matching SHA-256, dimensions, format, provenance, redistribution rights, tool or model record, prompt or Generation Specification, and completed QA. Unavailable evidence must carry an exact reason and unblock condition.
+
+An unavailable record is valid evidence accounting, not visual proof. Static validation must never convert an unavailable record into an accepted image claim.
+
+## Adapter evidence
+
+`skills/modern-flat-image-pipeline/assets/adapters/capability-profiles.yaml` is the profile registry. A capability may be `true` only when backed by a dated public contract or a recorded successful operation. Host-dependent or unverified tools remain in `unavailable_profiles` with a reason and unblock condition.
+
+Adapter profile evidence does not redefine the Scene Brief, locks, style contract, prompt semantics, QA rules, or delivery gate.
 
 ## Change control
 
@@ -84,5 +94,7 @@ Increment `eval_version` when:
 - changing canonical enum values;
 - changing anchor acceptance or rejection logic;
 - adding a new mandatory regression family.
+
+Adding evidence accounting or adapter validation without changing normative case decisions does not by itself change `eval_version`.
 
 Adding a backward-compatible case or fixture increments the minor version. Correcting wording without changing expected behavior increments the patch version.

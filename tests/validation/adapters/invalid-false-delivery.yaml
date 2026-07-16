@@ -1,0 +1,29 @@
+schema_version: 0.1.0
+profiles:
+  - adapter_id: false-delivery
+    tool_name: none
+    model_or_mode: no-image-tool
+    verification:
+      status: verified
+      verified_at: 2026-07-16
+      evidence_type: repository_contract
+      source: skills/modern-flat-image-pipeline/references/generator-adapters.md
+    capabilities:
+      text_to_image: false
+      reference_conditioned_generation: false
+      reference_image_editing: false
+      multiple_references: false
+      mask_or_inpainting: false
+      exact_aspect_ratio: false
+      exact_pixel_size: false
+      transparent_background: false
+      deterministic_seed: false
+      returns_inspectable_image: false
+    limitations: []
+    fallbacks:
+      semantic_lock: preserve
+      identity_lock: preserve
+      composition_lock: preserve
+      delivery: not_generated
+    false_delivery_claim_allowed: true
+unavailable_profiles: []
