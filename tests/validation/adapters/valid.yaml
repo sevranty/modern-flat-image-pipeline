@@ -6,7 +6,7 @@ profiles:
     model_or_mode: no-image-tool
     verification:
       status: verified
-      verified_at: 2026-07-16
+      verified_at: "2026-07-16"
       evidence_type: repository_contract
       source: skills/modern-flat-image-pipeline/references/generator-adapters.md
     capabilities:

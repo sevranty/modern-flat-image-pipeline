@@ -5,7 +5,7 @@ profiles:
     model_or_mode: example
     verification:
       status: stale
-      verified_at: 2025-01-01
+      verified_at: "2025-01-01"
       evidence_type: public_contract
       source: https://example.invalid/tool-contract
     capabilities:
