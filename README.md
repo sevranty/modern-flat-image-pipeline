@@ -227,14 +227,14 @@ modern-flat-image-pipeline/
 `-- docs/
 ```
 
-Detailed boundaries are documented in [architecture](docs/architecture.md) and [repository agent instructions](AGENTS.md).
+Detailed boundaries are documented in [architecture](docs/architecture.md), [WebFactoryOS orchestration boundary](docs/web-factory-os-orchestration.md), and [repository agent instructions](AGENTS.md).
 
 ## Known limitations
 
 - Image quality depends on the active generator or editor.
 - Exact likeness and strict local edits are not guaranteed when the host lacks reference-edit capabilities.
-- The first golden set is specification-based; provenance-controlled visual anchors are not yet published.
-- The repository social preview asset is committed, but its upload in repository Settings is a separate owner-side UI action.
+- The first golden set records twelve normative specifications with explicit unavailable evidence records until redistribution-cleared candidate images are produced and inspected.
+- The repository social preview asset is committed; public repository-card verification remains owner-side evidence and must not be asserted by the package alone.
 - The project has no automated image-similarity scorer and intentionally requires human or multimodal visual QA.
 
 ## Versioning
@@ -245,7 +245,7 @@ See [versioning](docs/style-versioning.md) and [changelog](CHANGELOG.md).
 
 ## Roadmap
 
-- attach provenance-controlled image evidence to the golden anchors;
+- replace anchor `unavailable` records with provenance-controlled image evidence after verified generation and visual QA;
 - add generator-specific adapter profiles only when their capability contracts are verified;
 - add optional local rendering helpers without coupling the core skill to one model;
 - expand regression coverage when new failure families are observed.
