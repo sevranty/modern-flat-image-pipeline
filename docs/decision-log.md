@@ -47,3 +47,11 @@
 **Decision:** Describe formal visual characteristics instead of using a living artist's name as a shortcut.
 
 **Reason:** Formal specifications are more precise, testable, portable, and respectful of authorship boundaries.
+
+## ADR-009: WebFactoryOS orchestration boundary
+
+**Decision:** MFP remains an autonomous execution and source-of-truth repository while WebFactoryOS owns only external registry, routing, task relations, naming records, and orchestration status. WebFactoryOS has `grants_write_access=false` for this repository. Broker availability signals remain external orchestration metadata and do not approve, block, or replace local review.
+
+**Reason:** Orchestration metadata must not create runtime, build, validation, release, or permission coupling. The local skill, plugin, assets, validators, tests, versions, releases, issues, and pull requests remain governed by MFP contracts.
+
+**Reference:** See [WebFactoryOS orchestration boundary](web-factory-os-orchestration.md).

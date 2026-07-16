@@ -40,8 +40,9 @@ The skill converts one or more visual references into a new Modern Flat illustra
 | Package and contract versions | `docs/style-versioning.md` |
 | Architecture | `docs/architecture.md` |
 | Decisions | `docs/decision-log.md` |
+| WebFactoryOS orchestration boundary | `docs/web-factory-os-orchestration.md` |
 
-Do not duplicate detailed rules across files. Link to the canonical file instead.
+Do not duplicate detailed rules across files. Link to the canonical file instead. For WebFactoryOS orchestration boundaries, link to `docs/web-factory-os-orchestration.md`.
 
 ## Packaging rules
 

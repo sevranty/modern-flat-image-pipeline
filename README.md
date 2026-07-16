@@ -227,7 +227,7 @@ modern-flat-image-pipeline/
 `-- docs/
 ```
 
-Detailed boundaries are documented in [architecture](docs/architecture.md) and [repository agent instructions](AGENTS.md).
+Detailed boundaries are documented in [architecture](docs/architecture.md), [repository agent instructions](AGENTS.md), and the [WebFactoryOS orchestration boundary](docs/web-factory-os-orchestration.md).
 
 ## Known limitations
 
