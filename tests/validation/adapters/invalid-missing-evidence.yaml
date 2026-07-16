@@ -4,7 +4,7 @@ profiles:
     tool_name: example
     model_or_mode: example
     capabilities:
-      text_to_image: true
+      text_to_image: false
       reference_conditioned_generation: false
       reference_image_editing: false
       multiple_references: false
@@ -13,6 +13,12 @@ profiles:
       exact_pixel_size: false
       transparent_background: false
       deterministic_seed: false
-      output_formats: []
       returns_inspectable_image: false
-    fallback_impact: [Do not claim generated-image delivery.]
+    limitations: []
+    fallbacks:
+      semantic_lock: preserve
+      identity_lock: preserve
+      composition_lock: preserve
+      delivery: not_generated
+    false_delivery_claim_allowed: false
+unavailable_profiles: []

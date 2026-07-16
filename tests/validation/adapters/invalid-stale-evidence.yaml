@@ -1,13 +1,13 @@
 schema_version: 0.1.0
 profiles:
-  - adapter_id: missing-fallback
-    tool_name: none
-    model_or_mode: no-image-tool
+  - adapter_id: stale-evidence
+    tool_name: example
+    model_or_mode: example
     verification:
-      status: verified
-      verified_at: "2026-07-16"
-      evidence_type: repository_contract
-      source: skills/modern-flat-image-pipeline/references/generator-adapters.md
+      status: stale
+      verified_at: "2025-01-01"
+      evidence_type: public_contract
+      source: https://example.invalid/tool-contract
     capabilities:
       text_to_image: false
       reference_conditioned_generation: false
@@ -23,6 +23,7 @@ profiles:
     fallbacks:
       semantic_lock: preserve
       identity_lock: preserve
+      composition_lock: preserve
       delivery: not_generated
     false_delivery_claim_allowed: false
 unavailable_profiles: []

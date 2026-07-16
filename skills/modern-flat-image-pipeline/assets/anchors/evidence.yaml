@@ -1,0 +1,76 @@
+schema_version: 0.1.0
+eval_version: 0.1.0
+evidence_status: tracked
+records:
+  - anchor_id: accepted-desk-lamp-negative-space
+    case_id: photo-object-composition
+    decision: accepted
+    evidence_state: unavailable
+    unavailable_reason: No provenance-controlled visual candidate has been published for this anchor.
+    unblock_condition: Run a verified adapter, record the prompt or Generation Specification, confirm redistribution rights, complete visual QA, and publish the checksum-addressed asset.
+  - anchor_id: accepted-cyclist-upward-motion
+    case_id: illustration-without-author-style-copy
+    decision: accepted
+    evidence_state: unavailable
+    unavailable_reason: No provenance-controlled visual candidate has been published for this anchor.
+    unblock_condition: Run a verified adapter, record the prompt or Generation Specification, confirm redistribution rights, complete visual QA, and publish the checksum-addressed asset.
+  - anchor_id: accepted-camera-city-layout
+    case_id: multi-reference-role-map
+    decision: accepted
+    evidence_state: unavailable
+    unavailable_reason: No provenance-controlled visual candidate has been published for this anchor.
+    unblock_condition: Run a verified adapter, record the prompt or Generation Specification, confirm redistribution rights, complete visual QA, and publish the checksum-addressed asset.
+  - anchor_id: accepted-city-tower-road
+    case_id: sketch-as-composition-map
+    decision: accepted
+    evidence_state: unavailable
+    unavailable_reason: No provenance-controlled visual candidate has been published for this anchor.
+    unblock_condition: Run a verified adapter, record the prompt or Generation Specification, confirm redistribution rights, complete visual QA, and publish the checksum-addressed asset.
+  - anchor_id: accepted-excavator-construction
+    case_id: machine-identity-lock
+    decision: accepted
+    evidence_state: unavailable
+    unavailable_reason: No provenance-controlled visual candidate has been published for this anchor.
+    unblock_condition: Run a verified adapter, record the prompt or Generation Specification, confirm redistribution rights, complete visual QA, and publish the checksum-addressed asset.
+  - anchor_id: accepted-runner-vertical
+    case_id: vertical-adaptation-9x16
+    decision: accepted
+    evidence_state: unavailable
+    unavailable_reason: No provenance-controlled visual candidate has been published for this anchor.
+    unblock_condition: Run a verified adapter, record the prompt or Generation Specification, confirm redistribution rights, complete visual QA, and publish the checksum-addressed asset.
+  - anchor_id: rejected-photorealistic-person
+    case_id: reject-photorealistic-drift
+    decision: rejected
+    evidence_state: unavailable
+    unavailable_reason: No rights-cleared failure example has been published for this anchor.
+    unblock_condition: Produce a controlled candidate that demonstrates only the named photorealistic drift family, record provenance, complete rejection QA, and publish the checksum-addressed asset.
+  - anchor_id: rejected-glossy-camera
+    case_id: reject-glossy-cgi-drift
+    decision: rejected
+    evidence_state: unavailable
+    unavailable_reason: No rights-cleared failure example has been published for this anchor.
+    unblock_condition: Produce a controlled candidate that demonstrates only the named glossy CGI drift family, record provenance, complete rejection QA, and publish the checksum-addressed asset.
+  - anchor_id: rejected-generic-flat-city
+    case_id: reject-generic-flat-drift
+    decision: rejected
+    evidence_state: unavailable
+    unavailable_reason: No rights-cleared failure example has been published for this anchor.
+    unblock_condition: Produce a controlled candidate that demonstrates only the named generic-flat drift family, record provenance, complete rejection QA, and publish the checksum-addressed asset.
+  - anchor_id: rejected-broken-excavator
+    case_id: machine-identity-lock
+    decision: rejected
+    evidence_state: unavailable
+    unavailable_reason: No rights-cleared failure example has been published for this anchor.
+    unblock_condition: Produce a controlled candidate that demonstrates the named construction failures, record provenance, complete rejection QA, and publish the checksum-addressed asset.
+  - anchor_id: rejected-person-anatomy
+    case_id: complex-person-environment
+    decision: rejected
+    evidence_state: unavailable
+    unavailable_reason: No rights-cleared failure example has been published for this anchor.
+    unblock_condition: Produce a controlled candidate that demonstrates the named anatomy and pseudo-text failures without private data, record provenance, complete rejection QA, and publish the checksum-addressed asset.
+  - anchor_id: rejected-delivery-missing
+    case_id: fail-user-visible-delivery
+    decision: rejected
+    evidence_state: unavailable
+    unavailable_reason: Delivery failure is procedural and has no valid standalone image asset.
+    unblock_condition: Attach a provenance-controlled run record proving that an accepted candidate remained inaccessible to the user, without presenting that candidate as successfully delivered.
