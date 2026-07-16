@@ -39,6 +39,7 @@ The skill converts one or more visual references into a new Modern Flat illustra
 | Validation orchestration | `scripts/validate_repository.py` |
 | Package and contract versions | `docs/style-versioning.md` |
 | Architecture | `docs/architecture.md` |
+| WebFactoryOS orchestration boundary | `docs/web-factory-os-orchestration.md` |
 | Decisions | `docs/decision-log.md` |
 
 Do not duplicate detailed rules across files. Link to the canonical file instead.

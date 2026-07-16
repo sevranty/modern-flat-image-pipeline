@@ -12,11 +12,17 @@ INVALID_SCENES = {
     Path("tests/validation/scene/invalid-conflict.yaml"): "SCENE-CONFLICT-001",
 }
 VALID_PROMPT = Path("tests/validation/prompt/valid.txt")
+VALID_ADAPTERS = Path("skills/modern-flat-image-pipeline/assets/adapters/profiles.yaml")
 INVALID_PROMPTS = {
     Path("tests/validation/prompt/invalid-photorealistic.txt"): "PROMPT-DRIFT-001",
     Path("tests/validation/prompt/invalid-brand.txt"): "PROMPT-BRAND-001",
     Path("tests/validation/prompt/invalid-light.txt"): "PROMPT-LIGHT-001",
     Path("tests/validation/prompt/invalid-artist.txt"): "PROMPT-ARTIST-001",
+}
+INVALID_ADAPTERS = {
+    Path("tests/validation/adapters/invalid-invented-capability.yaml"): "ADAPTER-CAP-003",
+    Path("tests/validation/adapters/invalid-missing-evidence.yaml"): "ADAPTER-EVIDENCE-001",
+    Path("tests/validation/adapters/invalid-missing-fallback.yaml"): "ADAPTER-FALLBACK-001",
 }
 
 
@@ -51,11 +57,14 @@ def run() -> int:
     checks.append(("evaluation", *run_command(root, ["scripts/validate_evaluation.py", "."], True)))
     checks.append(("scene-valid", *run_command(root, ["scripts/validate_scene_spec.py", str(VALID_SCENE)], True)))
     checks.append(("prompt-valid", *run_command(root, ["scripts/validate_prompt.py", str(VALID_PROMPT)], True)))
+    checks.append(("adapters-valid", *run_command(root, ["scripts/validate_adapters.py", str(VALID_ADAPTERS)], True)))
 
     for path, rule in INVALID_SCENES.items():
         checks.append((f"scene-negative:{path.name}", *run_command(root, ["scripts/validate_scene_spec.py", str(path)], False, rule)))
     for path, rule in INVALID_PROMPTS.items():
         checks.append((f"prompt-negative:{path.name}", *run_command(root, ["scripts/validate_prompt.py", str(path)], False, rule)))
+    for path, rule in INVALID_ADAPTERS.items():
+        checks.append((f"adapter-negative:{path.name}", *run_command(root, ["scripts/validate_adapters.py", str(path)], False, rule)))
 
     failures = 0
     for name, ok, output in checks:
