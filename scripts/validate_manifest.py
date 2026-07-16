@@ -4,14 +4,13 @@ import argparse
 from pathlib import Path
 from typing import Any
 
-from validation_common import Finding, KEBAB_RE, SEMVER_RE, load_json, load_yaml, main_guard, print_findings, read_text, scan_secrets_and_absolute_paths
+from validation_common import Finding, KEBAB_RE, SEMVER_RE, load_json, load_yaml, load_yaml_text, main_guard, print_findings, read_text, scan_secrets_and_absolute_paths
 
 
 def load_yaml_from_text(text: str, path: Path) -> Any:
-    import yaml
     try:
-        return yaml.safe_load(text)
-    except yaml.YAMLError as exc:
+        return load_yaml_text(text, f"{path.as_posix()} frontmatter")
+    except ValueError as exc:
         raise ValueError(f"invalid YAML frontmatter in {path}: {exc}") from exc
 
 

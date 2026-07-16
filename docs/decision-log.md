@@ -47,3 +47,10 @@
 **Decision:** Describe formal visual characteristics instead of using a living artist's name as a shortcut.
 
 **Reason:** Formal specifications are more precise, testable, portable, and respectful of authorship boundaries.
+## 2026-07-16: WebFactoryOS remains orchestration-only
+
+Decision: Modern Flat Image Pipeline records WebFactoryOS as an external orchestration boundary only. The repository keeps ownership of code, skill content, assets, validators, tests, Issues, PRs, tags, releases, and release evidence; WebFactoryOS owns registry, routing, relations, naming, and orchestration status only, with `grants_write_access=false`.
+
+Rationale: The skill must remain generator-independent and locally validatable without external runtime, registry, or release dependencies.
+
+See [WebFactoryOS orchestration boundary](web-factory-os-orchestration.md).
