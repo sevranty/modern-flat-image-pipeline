@@ -5,7 +5,7 @@ profiles:
     model_or_mode: example
     verification:
       status: verified
-      verified_at: 2026-07-16
+      verified_at: "2026-07-16"
       evidence_type: repository_contract
       source: docs/example.md
     capabilities:
