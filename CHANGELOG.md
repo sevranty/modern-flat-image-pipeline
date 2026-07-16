@@ -42,4 +42,4 @@ All notable changes to this project will be documented in this file.
 
 ### Release gate
 
-Version `0.1.0` remains unreleased until the Social preview owner-side upload and public-card verification pass, exact post-merge validation passes, tag `v0.1.0` targets that validated `main`, and the GitHub Release is published.
+Version `0.1.0` remains unreleased until exact post-merge validation passes, tag `v0.1.0` targets that validated `main`, and the GitHub Release is published. The repository Social preview upload and public-card verification are owner-confirmed complete for v0.1.0.
