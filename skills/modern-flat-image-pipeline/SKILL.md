@@ -12,7 +12,7 @@ skill_version: 0.1.0
 style_id: modern-flat
 style_version: 0.1.0
 prompt_pack_version: 0.1.0
-status: released
+status: draft
 ```
 
 ## Scope
