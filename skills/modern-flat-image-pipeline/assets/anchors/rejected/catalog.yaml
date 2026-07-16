@@ -8,10 +8,6 @@ anchors:
     rejection_reasons: [dominant photorealism, shallow depth of field, photographic microtexture]
     primary_diagnostic_category: style_drift
     runtime_action: regenerate
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: rejected-glossy-camera
     case_id: reject-glossy-cgi-drift
@@ -19,10 +15,6 @@ anchors:
     rejection_reasons: [dominant glossy CGI, mirror-like reflections, physically simulated material language]
     primary_diagnostic_category: style_drift
     runtime_action: regenerate
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: rejected-generic-flat-city
     case_id: reject-generic-flat-drift
@@ -30,10 +22,6 @@ anchors:
     rejection_reasons: [generic flat without required depth, no tonal modeling, no spatial layers]
     primary_diagnostic_category: style_drift
     runtime_action: regenerate
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: rejected-broken-excavator
     case_id: machine-identity-lock
@@ -41,10 +29,6 @@ anchors:
     rejection_reasons: [identity lock broken, impossible construction, duplicated working tool]
     primary_diagnostic_category: identity_error
     runtime_action: regenerate
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: rejected-person-anatomy
     case_id: complex-person-environment
@@ -52,10 +36,6 @@ anchors:
     rejection_reasons: [critical anatomy defect, private-data risk, accidental pseudo-text]
     primary_diagnostic_category: anatomy_error
     runtime_action: targeted_correction
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: rejected-delivery-missing
     case_id: fail-user-visible-delivery
@@ -63,7 +43,3 @@ anchors:
     rejection_reasons: [delivery gate failed, final image not visible]
     primary_diagnostic_category: delivery_missing
     runtime_action: fail
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.

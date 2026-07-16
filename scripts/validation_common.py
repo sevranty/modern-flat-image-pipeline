@@ -2,7 +2,6 @@ from __future__ import annotations
 
 import json
 import re
-import subprocess
 import sys
 from dataclasses import dataclass
 from pathlib import Path
@@ -10,8 +9,10 @@ from typing import Any, Iterable
 
 try:
     import yaml
-except ImportError:  # pragma: no cover
-    yaml = None
+except ImportError as exc:  # pragma: no cover
+    raise SystemExit(
+        "VAL-YAML-001: PyYAML is required locally; install it before running validators."
+    ) from exc
 
 SEMVER_RE = re.compile(r"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-[0-9A-Za-z.-]+)?(?:\+[0-9A-Za-z.-]+)?$")
 KEBAB_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
@@ -39,29 +40,10 @@ class Finding:
 
 
 def load_yaml_text(text: str, source: str) -> Any:
-    if yaml is not None:
-        try:
-            return yaml.safe_load(text)
-        except yaml.YAMLError as exc:
-            raise ValueError(f"invalid YAML in {source}: {exc}") from exc
-    completed = subprocess.run(
-        [
-            "ruby",
-            "-ryaml",
-            "-rjson",
-            "-e",
-            "puts JSON.generate(YAML.safe_load(STDIN.read, permitted_classes: [Date], aliases: false))",
-        ],
-        input=text,
-        text=True,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
-        check=False,
-    )
-    if completed.returncode != 0:
-        detail = completed.stderr.strip() or "Ruby Psych fallback is unavailable"
-        raise ValueError(f"invalid YAML in {source}: {detail}")
-    return json.loads(completed.stdout)
+    try:
+        return yaml.safe_load(text)
+    except yaml.YAMLError as exc:
+        raise ValueError(f"invalid YAML in {source}: {exc}") from exc
 
 
 def load_yaml(path: Path) -> Any:

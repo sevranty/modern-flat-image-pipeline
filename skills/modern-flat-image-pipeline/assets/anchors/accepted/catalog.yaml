@@ -8,10 +8,6 @@ anchors:
     format: 16:9
     palette_roles: [cool neutral base, blue dominant group, warm focal accent]
     acceptance_reasons: [readable silhouette, coherent directional light, layered shadows, protected negative space]
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: accepted-cyclist-upward-motion
     case_id: illustration-without-author-style-copy
@@ -19,10 +15,6 @@ anchors:
     format: 4:5
     palette_roles: [light neutral base, green dominant group, coral focal accent]
     acceptance_reasons: [clear action, clean geometry, authorial style not copied, atmospheric depth]
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: accepted-camera-city-layout
     case_id: multi-reference-role-map
@@ -30,10 +22,6 @@ anchors:
     format: 1:1
     palette_roles: [neutral base, violet dominant group, cyan supporting group, yellow focal accent]
     acceptance_reasons: [identity lock preserved, reference roles remain distinct, safe area protected]
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: accepted-city-tower-road
     case_id: sketch-as-composition-map
@@ -41,10 +29,6 @@ anchors:
     format: 16:9
     palette_roles: [sky neutral base, blue dominant group, teal support, orange focal accent]
     acceptance_reasons: [composition reconstructed, sketch noise removed, perspective coherent]
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: accepted-excavator-construction
     case_id: machine-identity-lock
@@ -52,10 +36,6 @@ anchors:
     format: 16:9
     palette_roles: [light neutral base, yellow dominant group, dark support, red focal accent]
     acceptance_reasons: [construction preserved, one bucket, readable articulation, non-photorealistic surfaces]
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
 
   - anchor_id: accepted-runner-vertical
     case_id: vertical-adaptation-9x16
@@ -63,7 +43,3 @@ anchors:
     format: 9:16
     palette_roles: [dark neutral base, blue dominant group, purple support, lime focal accent]
     acceptance_reasons: [vertical reading path, protected head area, coherent light, depth layers]
-    evidence:
-      status: unavailable
-      reason: No verified generator run with redistribution-cleared image evidence has been completed for this anchor.
-      unblock_condition: Generate or inspect a candidate with a verified adapter, complete visual QA, record provenance and rights, and attach the image evidence to this anchor.
