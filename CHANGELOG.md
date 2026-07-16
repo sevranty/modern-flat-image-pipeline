@@ -24,12 +24,22 @@ All notable changes to this project will be documented in this file.
 - Accepted and rejected golden anchor specifications.
 - Offline repository, manifest, evaluation, scene, and prompt validators.
 - Positive and negative validation fixtures with deterministic rule IDs.
-- Repository social preview benchmark, concepts, editable source, and PNG exports.
+- Repository social preview benchmark, concepts, editable source, and validated PNG exports.
 - README benchmark and content-architecture analysis.
+- Autonomous WebFactoryOS orchestration boundary with `grants_write_access: false`.
+- One evidence-state record for every normative golden anchor.
+- Evidence-gated adapter profile registry with explicit unavailable routes.
+- Anchor evidence and adapter profile validators.
+- Positive and negative adapter fixtures for evidence, fallback, and delivery failures.
 
 ### Changed
 
-- Skill discovery metadata now describes the complete reference-to-image and visual-QA workflow.
-- Release compatibility now records `eval_version: 0.1.0`.
-- Contribution guidance now requires the one-command local validator before review.
-- The public README now provides outcome-led onboarding, installation, examples, quality gates, evaluation evidence, capability boundaries, and roadmap.
+- Skill discovery metadata describes the complete reference-to-image and visual-QA workflow.
+- Release compatibility records `eval_version: 0.1.0`.
+- Contribution guidance requires one-command local validation before review.
+- Public README documents orchestration ownership, evidence states, verified adapter boundaries, and conditional roadmap triggers.
+- Golden anchor status is now `evidence_tracked`; no unavailable record is presented as visual proof.
+
+### Release gate
+
+Version `0.1.0` remains unreleased until the Social preview owner-side upload and public-card verification pass, exact post-merge validation passes, tag `v0.1.0` targets that validated `main`, and the GitHub Release is published.

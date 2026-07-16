@@ -1,6 +1,6 @@
 schema_version: 0.1.0
 profiles:
-  - adapter_id: missing-fallback
+  - adapter_id: false-delivery
     tool_name: none
     model_or_mode: no-image-tool
     verification:
@@ -23,6 +23,7 @@ profiles:
     fallbacks:
       semantic_lock: preserve
       identity_lock: preserve
+      composition_lock: preserve
       delivery: not_generated
-    false_delivery_claim_allowed: false
+    false_delivery_claim_allowed: true
 unavailable_profiles: []

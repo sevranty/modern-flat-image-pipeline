@@ -14,9 +14,9 @@ Use $modern-flat-image-pipeline to analyze the attached reference, preserve the 
 
 ## Why this exists
 
-A reference image mixes several independent things: subject, identity, action, camera, composition, palette, incidental detail, and rendering style. Sending all of it directly to an image generator produces uncontrolled averaging and style drift.
+A reference image mixes subject, identity, action, camera, composition, palette, incidental detail, and rendering style. Sending all of it directly to a generator creates uncontrolled averaging and style drift.
 
-This skill separates those concerns before generation and then verifies the **actual returned image**, not only the prompt.
+This skill separates those concerns before generation and verifies the **actual returned image**, not only the prompt.
 
 ## Pipeline
 
@@ -45,7 +45,7 @@ reference input
 - staged construction of a complex scene;
 - diagnosis and correction of an existing Modern Flat candidate.
 
-Do not use it when the intended final style is photorealistic, painterly, anime-led, generic flat minimalism without dimensional depth, glossy 3D CGI, or a direct imitation of a named living artist.
+Do not use it when the intended final style is photorealistic, painterly, anime-led, generic flat minimalism without dimensional depth, glossy 3D CGI, or direct imitation of a named living artist.
 
 ## Install as a standalone skill
 
@@ -66,13 +66,11 @@ mkdir -p "$HOME/plugins"
 git clone https://github.com/sevranty/modern-flat-image-pipeline.git "$HOME/plugins/modern-flat-image-pipeline"
 ```
 
-Add that local package to the selected personal or team plugin marketplace using the current Codex plugin configuration. The repository does not modify marketplace settings automatically.
+Add that local package to the selected personal or team plugin marketplace using current Codex plugin configuration. The repository does not modify marketplace settings automatically.
 
 ## Quick start
 
 ### One reference
-
-Attach an image and ask:
 
 ```text
 Use $modern-flat-image-pipeline to preserve the main object, action, camera angle, and large composition masses. Rebuild the rendering in Modern Flat, inspect the result, correct diagnosed errors, and show the accepted image.
@@ -100,30 +98,28 @@ Use $modern-flat-image-pipeline to inspect this candidate against the Scene Brie
 | Multi-reference synthesis | explicitly assigned role from each reference | conflicting or unassigned properties |
 | Targeted correction | accepted layers of an existing candidate | one diagnosed defect family |
 
-The user reference never owns the output style. The internal Modern Flat Style Lock is mandatory and non-overridable inside this skill.
+The user reference never owns output style. The internal Modern Flat Style Lock is mandatory and non-overridable.
 
 ## Runtime artifacts
-
-The skill produces inspectable intermediate contracts instead of one opaque prompt:
 
 | Artifact | Purpose |
 |---|---|
 | Reference Analysis Card | separates observed evidence, inference, and unknowns |
 | Reference Map | assigns content, identity, pose, construction, camera, composition, scale, environment, palette direction, or detail roles |
-| Locks | defines what generation is not allowed to change |
+| Locks | defines what generation cannot change |
 | Scene Brief | states purpose, message, subject, action, environment, depth, and success criteria |
 | Composition Specification | fixes camera, framing, negative space, safe area, and crop protection |
 | Generation Specification | canonical source of truth for one attempt |
 | QA report | records weighted scores, critical defects, diagnostic category, and next action |
 | Delivery record | proves that the accepted candidate is visible to the user |
 
-The natural-language generation prompt is a compiled output. It is not the canonical contract.
+The natural-language generation prompt is a compiled output, not the canonical contract.
 
 ## Modern Flat contract
 
 A valid result uses:
 
-- clean structured planar or vector-like geometry;
+- clean planar or vector-like geometry;
 - readable silhouettes;
 - dimensional gradient modeling;
 - one coherent directional key light;
@@ -145,7 +141,7 @@ input gate
 -> final delivery gate
 ```
 
-A candidate cannot pass by score alone when it contains a critical defect such as the wrong subject, lost meaning, broken anatomy, impossible construction, dominant photorealism, dominant glossy CGI, generic flat output without depth, conflicting light directions, critical crop, or missing user-visible delivery.
+A candidate cannot pass by score alone when it contains a critical defect such as wrong subject, lost meaning, broken anatomy, impossible construction, dominant photorealism, dominant glossy CGI, generic flat output without depth, conflicting light directions, critical crop, or missing user-visible delivery.
 
 Correction order:
 
@@ -161,31 +157,23 @@ meaning
 -> delivery
 ```
 
-See [quality gates](skills/modern-flat-image-pipeline/references/quality-gates.md) and the [delivery contract](skills/modern-flat-image-pipeline/references/output-delivery.md).
+See [quality gates](skills/modern-flat-image-pipeline/references/quality-gates.md) and [delivery contract](skills/modern-flat-image-pipeline/references/output-delivery.md).
 
 ## Generator capability boundaries
 
 The skill does not bundle an image model or private generation endpoint. It adapts the Generation Specification to capabilities available in the host environment.
 
-Support for reference editing, multiple images, masks, transparent backgrounds, deterministic seeds, exact pixel dimensions, and output formats must be confirmed at runtime. Missing capabilities are reported; they are never invented.
+Support for reference editing, multiple images, masks, transparent backgrounds, deterministic seeds, exact pixel dimensions, and output formats must be confirmed. Missing capabilities are reported, never invented.
 
-See [generator adapters](skills/modern-flat-image-pipeline/references/generator-adapters.md).
+Verified and unavailable routes are tracked in the [adapter profile registry](skills/modern-flat-image-pipeline/assets/adapters/capability-profiles.yaml). The v0.1.0 verified route is the no-image-tool fallback; host-dependent image tools remain unavailable until dated capability evidence exists.
+
+See [generator adapters](skills/modern-flat-image-pipeline/references/generator-adapters.md) and [adapter profile rules](skills/modern-flat-image-pipeline/assets/adapters/README.md).
 
 ## Evaluation
 
-Evaluation version `0.1.0` contains twelve end-to-end cases covering:
+Evaluation version `0.1.0` contains twelve end-to-end cases covering photo and illustration reinterpretation, multiple reference roles, sketch-driven composition, people and privacy checks, machine construction, text safe areas, vertical adaptation, style drift, and missing final delivery.
 
-- photo and illustration reinterpretation;
-- multiple reference roles;
-- sketch-driven composition;
-- people and private-data checks;
-- machine construction;
-- text safe areas;
-- vertical adaptation;
-- photorealistic, glossy-CGI, and generic-flat drift;
-- missing final delivery.
-
-The golden set currently consists of six accepted and six rejected **anchor specifications**. Visual evidence can be attached only with provenance and completed QA.
+The golden set contains six accepted and six rejected normative anchor specifications. [Evidence state](skills/modern-flat-image-pipeline/assets/anchors/evidence.yaml) is recorded for every anchor. All v0.1.0 visual candidates are explicitly unavailable until a provenance-controlled, rights-cleared generator run and completed QA are published. Unavailable records are accounting, not visual proof.
 
 See [evaluation contract](docs/evaluation-contract.md), [test cases](tests/cases/e2e-cases.yaml), and [anchor rules](skills/modern-flat-image-pipeline/assets/anchors/README.md).
 
@@ -198,16 +186,15 @@ python3 -m pip install -r requirements-validation.txt
 python3 scripts/validate_repository.py .
 ```
 
-The command validates:
-
-- plugin manifest and skill metadata;
-- relative links, names, versions, ASCII paths, credentials, and local absolute paths;
-- evaluation IDs, references, decisions, diagnostics, and anchors;
-- valid and invalid Scene Specification fixtures;
-- valid and invalid prompt fixtures;
-- expected deterministic rule IDs.
+The command validates plugin and skill metadata, links, names, versions, ASCII paths, secrets, local paths, evaluation contracts, anchor evidence, adapter evidence, Scene Specifications, prompts, and deterministic positive and negative fixtures.
 
 Static validation does not replace visual inspection of an actual generated image.
+
+## Project governance
+
+MFP is the source of truth for runtime, contracts, assets, tests, validators, local Issues and pull requests, tags, and releases. WebFactoryOS may own only external registry, routing, relations, naming, and orchestration status. It receives no write access and is not a build, runtime, validation, packaging, or release dependency.
+
+See [orchestration boundary](docs/web-factory-os-orchestration.md), [architecture](docs/architecture.md), [agent instructions](AGENTS.md), and [decision log](docs/decision-log.md).
 
 ## Repository structure
 
@@ -220,21 +207,20 @@ modern-flat-image-pipeline/
 |   |-- references/
 |   `-- assets/
 |       |-- templates/
-|       `-- anchors/
+|       |-- anchors/
+|       `-- adapters/
 |-- scripts/
 |-- tests/
 |-- assets/
 `-- docs/
 ```
 
-Detailed boundaries are documented in [architecture](docs/architecture.md), [WebFactoryOS orchestration boundary](docs/web-factory-os-orchestration.md), and [repository agent instructions](AGENTS.md).
-
 ## Known limitations
 
 - Image quality depends on the active generator or editor.
-- Exact likeness and strict local edits are not guaranteed when the host lacks reference-edit capabilities.
-- The first golden set records twelve normative specifications with explicit unavailable evidence records until redistribution-cleared candidate images are produced and inspected.
-- The repository social preview asset is committed; public repository-card verification remains owner-side evidence and must not be asserted by the package alone.
+- Exact likeness and strict local edits are not guaranteed without reference-edit capabilities.
+- Provenance-controlled visual anchor images are not yet published; all twelve evidence records state why and how to unblock publication.
+- The repository social preview asset is committed, but upload through repository Settings and public-card verification remain owner-side UI actions until confirmed.
 - The project has no automated image-similarity scorer and intentionally requires human or multimodal visual QA.
 
 ## Versioning
@@ -245,17 +231,17 @@ See [versioning](docs/style-versioning.md) and [changelog](CHANGELOG.md).
 
 ## Roadmap
 
-- replace anchor `unavailable` records with provenance-controlled image evidence after verified generation and visual QA;
-- add generator-specific adapter profiles only when their capability contracts are verified;
-- add optional local rendering helpers without coupling the core skill to one model;
-- expand regression coverage when new failure families are observed.
+- publish provenance-controlled visual candidates when verified generator runs and rights records exist;
+- add generator-specific profiles only when current capability contracts are verified;
+- consider optional local rendering helpers only after adapter evidence exists and without coupling core runtime to one model;
+- expand regression coverage only when a new reproducible failure family is observed.
 
 ## Contributing
 
-1. Work in a task branch.
+1. Work in one task branch and one pull request.
 2. Keep each detailed rule in one canonical source file.
 3. Update the decision log for foundational changes.
-4. Update compatibility versions and the changelog when behavior changes.
+4. Update versions and changelog when behavior changes.
 5. Run `python3 scripts/validate_repository.py .` before review.
 6. Do not commit external references without clear redistribution rights.
 

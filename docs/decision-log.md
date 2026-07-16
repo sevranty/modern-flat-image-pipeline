@@ -47,10 +47,21 @@
 **Decision:** Describe formal visual characteristics instead of using a living artist's name as a shortcut.
 
 **Reason:** Formal specifications are more precise, testable, portable, and respectful of authorship boundaries.
-## 2026-07-16: WebFactoryOS remains orchestration-only
 
-Decision: Modern Flat Image Pipeline records WebFactoryOS as an external orchestration boundary only. The repository keeps ownership of code, skill content, assets, validators, tests, Issues, PRs, tags, releases, and release evidence; WebFactoryOS owns registry, routing, relations, naming, and orchestration status only, with `grants_write_access=false`.
+## ADR-009: WebFactoryOS is orchestration-only
 
-Rationale: The skill must remain generator-independent and locally validatable without external runtime, registry, or release dependencies.
+**Decision:** MFP owns its runtime, contracts, assets, validators, tests, Issues, pull requests, tags, and releases. WebFactoryOS may own only external registry, routing, relations, naming, and orchestration status. `grants_write_access` is false.
 
-See [WebFactoryOS orchestration boundary](web-factory-os-orchestration.md).
+**Reason:** External orchestration must not become a runtime dependency or override the repository source of truth.
+
+## ADR-010: Evidence can be explicitly unavailable
+
+**Decision:** Every normative visual anchor has one evidence record. A record may be published or unavailable. Unavailable records require a reason and unblock condition and never count as visual proof.
+
+**Reason:** Complete evidence accounting is preferable to fabricated, unclear-rights, or provenance-free images.
+
+## ADR-011: Adapter capabilities are evidence-gated
+
+**Decision:** A profile capability may be true only when backed by a dated public contract or recorded successful operation. Unverified tools remain unavailable and the core skill keeps its no-image-tool fallback.
+
+**Reason:** Generator claims drift quickly and unsupported capabilities can break locks or create false completion claims.
