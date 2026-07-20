@@ -220,7 +220,7 @@ modern-flat-image-pipeline/
 - Image quality depends on the active generator or editor.
 - Exact likeness and strict local edits are not guaranteed without reference-edit capabilities.
 - Provenance-controlled visual anchor images are not yet published; all twelve evidence records state why and how to unblock publication.
-- The repository social preview asset is committed and owner-confirmed as uploaded through repository Settings with public-card verification for v0.1.0; future repository Settings changes remain owner-side UI actions.
+- The repository social preview asset is committed. Upload through repository Settings and public-card verification remain owner-side UI actions until independently verified.
 - The project has no automated image-similarity scorer and intentionally requires human or multimodal visual QA.
 
 ## Versioning
