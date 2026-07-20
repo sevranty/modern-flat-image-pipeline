@@ -42,4 +42,4 @@ All notable changes to this project will be documented in this file.
 
 ### Release gate
 
-No GitHub Release is required for the owner-confirmed Social preview completion state. Version `0.1.0` remains draft/unreleased unless a separate release decision creates a validated tag and GitHub Release. The repository Social preview upload and public-card verification are owner-confirmed complete for v0.1.0.
+Version `0.1.0` remains unreleased until the repository Social preview upload and public-card verification pass, exact-main validation passes, tag `v0.1.0` targets that validated main, and the GitHub Release is published.
