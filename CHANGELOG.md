@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
-## [0.1.0] - unreleased
+## [0.1.0] - 2026-07-23
 
 ### Added
 
@@ -41,6 +41,13 @@ All notable changes to this project will be documented in this file.
 - Golden anchor status is now `evidence_tracked`; no unavailable record is presented as visual proof.
 - Repository Social preview installation and public-card verification are tracked separately in MFP#12 and do not block merges, tags, GitHub Releases, or release closure.
 
-### Release gate
+### Validation
 
-Version `0.1.0` remains unreleased until exact-main validation passes, tag `v0.1.0` targets that validated main, and the GitHub Release is published and publicly verified. Repository Social preview installation is an independent owner-side follow-up and is not a release gate.
+- Clean-checkout validation passed on 2026-07-23 for exact `main` commit `03b29f605d92a4ecc412c2467ae59ad134133e1b`: 19 checks, 0 failures. `git diff --check` passed, the checkout remained clean, and remote `main` matched the validated commit before and after the run.
+
+### Release evidence
+
+- GitHub Release `Modern Flat Image Pipeline v0.1.0` was published on 2026-07-23 at https://github.com/sevranty/modern-flat-image-pipeline/releases/tag/v0.1.0.
+- Tag `v0.1.0` targets exact validated commit `03b29f605d92a4ecc412c2467ae59ad134133e1b`.
+- Release state was verified as public, not draft, not prerelease, with HTTP status `200`.
+- Repository Social preview installation remains an independent owner-side follow-up and is not a release gate.
