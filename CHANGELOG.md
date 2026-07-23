@@ -41,6 +41,10 @@ All notable changes to this project will be documented in this file.
 - Golden anchor status is now `evidence_tracked`; no unavailable record is presented as visual proof.
 - Repository Social preview installation and public-card verification are tracked separately in MFP#12 and do not block merges, tags, GitHub Releases, or release closure.
 
+### Validation
+
+- Clean-checkout validation passed on 2026-07-23 for exact `main` commit `03b29f605d92a4ecc412c2467ae59ad134133e1b`: 19 checks, 0 failures. `git diff --check` passed, the checkout remained clean, and remote `main` matched the validated commit before and after the run.
+
 ### Release gate
 
-Version `0.1.0` remains unreleased until exact-main validation passes, tag `v0.1.0` targets that validated main, and the GitHub Release is published and publicly verified. Repository Social preview installation is an independent owner-side follow-up and is not a release gate.
+Version `0.1.0` remains unreleased until tag `v0.1.0` targets the validated commit `03b29f605d92a4ecc412c2467ae59ad134133e1b` and the GitHub Release is published and publicly verified. Repository Social preview installation is an independent owner-side follow-up and is not a release gate.
