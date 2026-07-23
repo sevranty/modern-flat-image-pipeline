@@ -39,7 +39,8 @@ All notable changes to this project will be documented in this file.
 - Contribution guidance requires one-command local validation before review.
 - Public README documents orchestration ownership, evidence states, verified adapter boundaries, and conditional roadmap triggers.
 - Golden anchor status is now `evidence_tracked`; no unavailable record is presented as visual proof.
+- Repository Social preview installation and public-card verification are tracked separately in MFP#12 and do not block merges, tags, GitHub Releases, or release closure.
 
 ### Release gate
 
-Version `0.1.0` remains unreleased until the repository Social preview upload and public-card verification pass, exact-main validation passes, tag `v0.1.0` targets that validated main, and the GitHub Release is published.
+Version `0.1.0` remains unreleased until exact-main validation passes, tag `v0.1.0` targets that validated main, and the GitHub Release is published and publicly verified. Repository Social preview installation is an independent owner-side follow-up and is not a release gate.
