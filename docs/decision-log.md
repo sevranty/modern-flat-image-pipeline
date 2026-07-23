@@ -65,3 +65,9 @@
 **Decision:** A profile capability may be true only when backed by a dated public contract or recorded successful operation. Unverified tools remain unavailable and the core skill keeps its no-image-tool fallback.
 
 **Reason:** Generator claims drift quickly and unsupported capabilities can break locks or create false completion claims.
+
+## ADR-012: Repository Social preview is non-blocking release metadata
+
+**Decision:** Installation and public verification of the repository Social preview are tracked only in MFP#12 as an independent owner-side follow-up. They do not block repository changes, validation, merge, tag creation, GitHub Release publication, or closure of MFP#21.
+
+**Reason:** Social preview is presentation metadata managed through repository Settings. It does not change package bytes, runtime behavior, validation semantics, compatibility, provenance, or release integrity. Coupling it to the critical release path delays verified data without improving the released artifact.
