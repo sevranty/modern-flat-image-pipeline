@@ -25,6 +25,7 @@ steps:
   - name: project-validation
     image: python:3.12-alpine
     commands:
+      - pip install --no-cache-dir PyYAML
       - python3 scripts/validate_repository.py .
 
 concurrency: 1
