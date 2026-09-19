@@ -1,0 +1,31 @@
+when:
+  - event: pull_request
+  - event: push
+    branch: ${CI_REPO_DEFAULT_BRANCH}
+
+# MFP#44: repository-local validation for Modern Flat Image Pipeline.
+clone:
+  - name: git
+    image: woodpeckerci/plugin-git
+    settings:
+      partial: false
+      depth: 0
+
+steps:
+  - name: repository-integrity
+    image: alpine/git:2.47.2
+    commands:
+      - git diff --check
+      - git fsck --no-progress
+      - test -f README.md
+      - test -f AGENTS.md
+      - test -f scripts/validate_repository.py
+      - 'test -z "$(git status --porcelain)"'
+
+  - name: project-validation
+    image: python:3.12-alpine
+    commands:
+      - pip install --no-cache-dir PyYAML
+      - python3 scripts/validate_repository.py .
+
+concurrency: 1
