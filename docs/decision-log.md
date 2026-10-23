@@ -71,3 +71,11 @@
 **Decision:** Installation and public verification of the repository Social preview are tracked only in MFP#12 as an independent owner-side follow-up. They do not block repository changes, validation, merge, tag creation, GitHub Release publication, or closure of MFP#21.
 
 **Reason:** Social preview is presentation metadata managed through repository Settings. It does not change package bytes, runtime behavior, validation semantics, compatibility, provenance, or release integrity. Coupling it to the critical release path delays verified data without improving the released artifact.
+
+## ADR-013: Presento optional materialized-asset boundary
+
+**Decision:** Accept the versioned `presento.asset-provider.request.v1` and `presento.asset-provider.result.v1` contracts as an optional, explicitly invoked integration boundary. MFP retains generator choice, visual QA, file ownership, and final user delivery. The repository-owned offline adapter may attest only an existing reviewed image under an MFP output root; it cannot claim to generate or visually approve an image. The Presento Python package is not a runtime dependency.
+
+**Reason:** An external presentation workflow needs deterministic provider revision, canonical configuration hash, and file-byte provenance without taking over MFP's generator-independent workflow. A local adapter with negative contract tests is auditable and does not require paid calls, credentials, or protected runtime changes.
+
+**Compatibility:** Presento PRE#31 merged in `3ce75515783cc6c956d43eaaa6dc0600a434a1e4`; both `config_sha256` and `checksum` are 64 lowercase hexadecimal characters without a prefix. Missing or invalid materialization fails closed. Automatic generator execution is not implied by this ADR.
