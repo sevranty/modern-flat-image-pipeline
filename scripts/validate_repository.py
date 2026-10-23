@@ -63,6 +63,7 @@ def run() -> int:
     checks.append(("adapter-valid", *run_command(root, ["scripts/validate_adapter_profiles.py", str(VALID_ADAPTER)], True)))
     checks.append(("scene-valid", *run_command(root, ["scripts/validate_scene_spec.py", str(VALID_SCENE)], True)))
     checks.append(("prompt-valid", *run_command(root, ["scripts/validate_prompt.py", str(VALID_PROMPT)], True)))
+    checks.append(("presento-provider-contract", *run_command(root, ["-m", "unittest", "discover", "-s", "tests", "-p", "test_presento_asset_provider.py"], True)))
 
     for path, rule in INVALID_SCENES.items():
         checks.append((f"scene-negative:{path.name}", *run_command(root, ["scripts/validate_scene_spec.py", str(path)], False, rule)))
