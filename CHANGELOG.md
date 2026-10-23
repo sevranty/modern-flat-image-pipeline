@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+### Added
+
+- Optional offline Presento v1 materialized-asset adapter with exact provider/config/file provenance and machine-readable failures (MFP#41).
+- Ten offline positive/negative adapter tests included in repository validation; no paid generation or credentials.
+
 ## [0.1.0] - 2026-07-23
 
 ### Added
